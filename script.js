@@ -1,28 +1,24 @@
-// Automatic gallery generation
-const gallery = document.getElementById("gallery");
-const totalImages = 6; // number of images in /sliki
+// Inject gallery images
+const gallery = document.getElementById("gallery-grid");
+const total = 6;
 
-for (let i = 1; i <= totalImages; i++) {
+for (let i = 1; i <= total; i++) {
   const img = document.createElement("img");
-  img.src = `https://raw.githubusercontent.com/majstor-naste-art/majstor-naste/main/sliki/${i}.jpg`;
-  img.alt = `Фасада ${i}`;
+  img.src = `sliki/${i}.jpg`;
+  img.alt = `Проект ${i}`;
   img.onerror = () => img.src = "https://placehold.co/400x300?text=Majstor+Naste";
   gallery.appendChild(img);
 }
 
-// Lightbox logic
+// Lightbox functionality
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
-const caption = document.getElementById("caption");
+const close = document.querySelector(".close");
 
-gallery.addEventListener("click", (e) => {
+gallery.addEventListener("click", e => {
   if (e.target.tagName === "IMG") {
-    lightbox.style.display = "block";
+    lightbox.style.display = "flex";
     lightboxImg.src = e.target.src;
-    caption.innerText = e.target.alt;
   }
 });
-
-document.querySelector(".close").addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
+close.onclick = () => (lightbox.style.display = "none");
