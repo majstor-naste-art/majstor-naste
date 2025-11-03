@@ -1,5 +1,5 @@
 /* CONFIG */
-const TOTAL_IMAGES = 6;
+const TOTAL_IMAGES = 20;
 const IMAGE_SRC = i => `sliki/${i}.jpg`;
 
 /* DOM */
