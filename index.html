@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="mk">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Мајстор Насте — Фасади & Камен</title>
-  <meta name="description" content="Фасади, гнајс, камини, каменни огради и мазилка.">
+  <meta name="description" content="Фасади, гнајс, камини, камен и мазилка.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,24 +12,24 @@
     <div class="container nav-inner">
       <div class="brand">
         <div class="logo">MN</div>
-        <div>
+        <div class="brand-text">
           <div id="brand-name">Мајстор Насте</div>
           <div id="brand-slogan">Фасади, камен и мазилка</div>
         </div>
       </div>
 
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="#hero" id="nav-home">Почетна</a>
-        <a href="#services" id="nav-services">Услуги</a>
-        <a href="#gallery" id="nav-gallery">Галерија</a>
-        <a href="#contact" id="nav-contact">Контакт</a>
+        <a href="#hero" class="nav-link" data-section="home">Почетна</a>
+        <a href="#services" class="nav-link" data-section="services">Услуги</a>
+        <a href="#gallery" class="nav-link" data-section="gallery">Галерија</a>
+        <a href="#contact" class="nav-link" data-section="contact">Контакт</a>
       </nav>
 
       <div class="tools">
-        <div class="lang-switch" role="tablist" aria-label="Јазици">
-          <button class="lang-btn active" data-lang="mk">MK</button>
-          <button class="lang-btn" data-lang="bg">BG</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+        <div class="lang-switch" role="tablist" aria-label="Languages">
+          <button class="lang-btn active" data-lang="mk" title="Македонски">🇲🇰</button>
+          <button class="lang-btn" data-lang="bg" title="Български">🇧🇬</button>
+          <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
         </div>
         <a class="phone" href="tel:+359881234567">+359 88 123 4567</a>
       </div>
@@ -41,7 +41,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content container">
       <h1 id="hero-title">Фасади & Камен — професионално изведување</h1>
-      <p id="hero-sub">Специализация: фасади, облицовки с гнајс, камини и мазилки.</p>
+      <p id="hero-sub">Специјализација: фасади, облицовки, камини и мазилки.</p>
       <div class="hero-ctas">
         <a id="cta-quote" class="btn primary" href="#contact">Барај проценка</a>
         <a id="cta-gallery" class="btn ghost" href="#gallery">Галерија</a>
@@ -56,12 +56,12 @@
         <article class="card">
           <img src="sliki/1.jpg" alt="">
           <h3 id="s1-title">Фасади и изолации</h3>
-          <p id="s1-desc">Топлоизолации, декоративни мазилки и завршни фасадни работи.</p>
+          <p id="s1-desc">Топла изолација, декоративни мазилки и завршни фасадни работи.</p>
         </article>
         <article class="card">
           <img src="sliki/2.jpg" alt="">
           <h3 id="s2-title">Облицовки с гнајс</h3>
-          <p id="s2-desc">Облицовки с естествен камък — здравина и стил.</p>
+          <p id="s2-desc">Облицовки со природен камен — здравина и стил.</p>
         </article>
         <article class="card">
           <img src="sliki/3.jpg" alt="">
@@ -74,7 +74,7 @@
     <section id="gallery" class="gallery-section">
       <h2 id="gallery-title">Галерија</h2>
       <div class="gallery-grid" id="gallery-grid" aria-live="polite">
-        <!-- JS inject images -->
+        <!-- injected by JS -->
       </div>
     </section>
 
@@ -94,7 +94,7 @@
           <label><span id="lbl-msg">Съобщение</span><textarea name="message" rows="5" required></textarea></label>
           <div class="form-row">
             <button type="reset" class="btn ghost">Изчисти</button>
-            <button type="submit" class="btn primary" id="send-btn">Изпрати</button>
+            <button type="submit" class="btn primary" id="send-btn">Испрати</button>
           </div>
           <div id="contact-status" class="muted" role="status" aria-live="polite"></div>
         </form>
@@ -109,7 +109,7 @@
     </div>
   </footer>
 
-  <!-- Lightbox -->
+  <!-- Lightbox with blur/backdrop -->
   <div id="lightbox" class="lightbox" aria-hidden="true">
     <button class="lb-close" aria-label="Close">✕</button>
     <button class="lb-prev" aria-label="Previous">‹</button>
