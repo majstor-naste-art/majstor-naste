@@ -1,111 +1,37 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="mk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Майстор Насте — Фасади & Камен</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мајстор Насте — Галерија фасади и камен</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="topbar">
-  <div class="container topbar-inner">
-    <div class="brand">
-      <div class="logo">MN</div>
-      <div class="brand-text">
-        <h1>Майстор Насте</h1>
-        <p>Фасади, камък и мазилка — качество без компромиси</p>
+  <header class="header">
+    <h1>Мајстор Насте</h1>
+    <p>Фасади, камен, гнајс и декоративна изолација</p>
+  </header>
+
+  <main>
+    <section class="gallery-section">
+      <h2>Галерија</h2>
+      <div class="gallery" id="gallery">
+        <!-- Images injected by JS -->
       </div>
-    </div>
-    <div class="actions">
-      <div class="lang">
-        <button class="lang-btn active" data-lang="bg">BG</button>
-        <button class="lang-btn" data-lang="mk">MK</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-      <a href="tel:+359881234567" class="phone">+359 88 123 4567</a>
-    </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="caption"></div>
   </div>
-</header>
 
-<section class="hero">
-  <div class="overlay"></div>
-  <img src="sliki/1.jpeg" alt="Фасада">
-  <div class="hero-content">
-    <h1 id="hero-title">Фасади & Камен - професионално изпълнение</h1>
-    <p id="hero-sub">Специализация: фасади, облицовки с гнајс, камини, каменни огради и мазилка.</p>
-    <a href="#contact" class="btn primary" id="cta-btn">Вземете оферта</a>
-  </div>
-</section>
+  <footer>
+    <p>© 2025 Мајстор Насте | majstor-naste-art.github.io</p>
+  </footer>
 
-<main class="container">
-
-<section class="services">
-  <h2>Нашите услуги</h2>
-  <div class="services-grid">
-    <article class="service">
-      <img src="sliki/1.jpg" alt="Фасади">
-      <h3>Фасади и изолации</h3>
-      <p>Топлоизолации, декоративни мазилки и довършителни работи за устойчив външен вид.</p>
-    </article>
-    <article class="service">
-      <img src="sliki/2.jpg" alt="Гнајс">
-      <h3>Облицовки с гнајс и камък</h3>
-      <p>Естествен камък за фасади и декоративни елементи с перфектен монтаж.</p>
-    </article>
-    <article class="service">
-      <img src="sliki/3.jpg" alt="Камини">
-      <h3>Камини и декоративни елементи</h3>
-      <p>Дизайн и изпълнение на камини и вътрешни/външни каменни акценти.</p>
-    </article>
-  </div>
-</section>
-
-<section id="gallery">
-  <h2>Галерия</h2>
-  <div class="gallery-grid">
-      <img src="sliki/1.jpg" data-full="sliki/1.jpg" alt="Project 1">
-    <img src="sliki/2.jpg" data-full="sliki/2.jpg" alt="Project 2">
-    <img src="sliki/3.jpg" data-full="sliki/3.jpg" alt="Project 3">
-    <img src="sliki/4.jpg" data-full="sliki/4.jpg" alt="Project 4">
-    <img src="sliki/5.jpg" data-full="sliki/5.jpg" alt="Project 5">
-    <img src="sliki/6.jpg" data-full="sliki/6.jpg" alt="Project 6">
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Свържете се</h2>
-  <div class="contact-grid">
-    <div class="contact-card">
-      <p>Телефон: <a href="tel:+359881234567">+359 88 123 4567</a></p>
-      <p>Имейл: <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
-      <a class="btn ghost" href="https://wa.me/359881234567" target="_blank">WhatsApp</a>
-    </div>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Име/Телефон">
-      <input type="email" name="email" placeholder="Имейл">
-      <textarea name="message" placeholder="Съобщение"></textarea>
-      <button type="submit">Изпрати</button>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <p>© <span id="yr"></span> Майстор Насте</p>
-</footer>
-
-<!-- Lightbox overlay -->
-<div id="lightbox" class="lightbox">
-  <span class="close">&times;</span>
-  <img class="lightbox-img" src="">
-  <div class="nav">
-    <span class="prev">&#10094;</span>
-    <span class="next">&#10095;</span>
-  </div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
