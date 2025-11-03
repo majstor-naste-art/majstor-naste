@@ -1,35 +1,28 @@
-document.getElementById("yr").textContent = new Date().getFullYear();
+// Automatic gallery generation
+const gallery = document.getElementById("gallery");
+const totalImages = 6; // number of images in /sliki
 
-// Lightbox functionality
-const galleryImgs = document.querySelectorAll(".gallery-grid img");
+for (let i = 1; i <= totalImages; i++) {
+  const img = document.createElement("img");
+  img.src = `https://raw.githubusercontent.com/majstor-naste-art/majstor-naste/main/sliki/${i}.jpg`;
+  img.alt = `Фасада ${i}`;
+  img.onerror = () => img.src = "https://placehold.co/400x300?text=Majstor+Naste";
+  gallery.appendChild(img);
+}
+
+// Lightbox logic
 const lightbox = document.getElementById("lightbox");
-const lbImg = document.querySelector(".lightbox-img");
-const closeBtn = document.querySelector(".close");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
+const lightboxImg = document.getElementById("lightbox-img");
+const caption = document.getElementById("caption");
 
-let currentIndex = 0;
-
-galleryImgs.forEach((img, i) => {
-  img.addEventListener("click", ()=>{
-    currentIndex = i;
-    lbImg.src = img.dataset.full;
-    lightbox.style.display = "flex";
-  });
+gallery.addEventListener("click", (e) => {
+  if (e.target.tagName === "IMG") {
+    lightbox.style.display = "block";
+    lightboxImg.src = e.target.src;
+    caption.innerText = e.target.alt;
+  }
 });
 
-closeBtn.addEventListener("click", ()=>lightbox.style.display="none");
-
-prevBtn.addEventListener("click", ()=>{
-  currentIndex = (currentIndex-1+galleryImgs.length)%galleryImgs.length;
-  lbImg.src = galleryImgs[currentIndex].dataset.full;
-});
-
-nextBtn.addEventListener("click", ()=>{
-  currentIndex = (currentIndex+1)%galleryImgs.length;
-  lbImg.src = galleryImgs[currentIndex].dataset.full;
-});
-
-lightbox.addEventListener("click", e=>{
-  if(e.target===lightbox) lightbox.style.display="none";
+document.querySelector(".close").addEventListener("click", () => {
+  lightbox.style.display = "none";
 });
