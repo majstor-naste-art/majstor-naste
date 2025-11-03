@@ -1,104 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bg">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Майстор Насте — Фасади & Камен</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Майстор Насте — Фасади & Камен</title>
+  <meta name="description" content="Майстор Насте — фасади, гнајс, камини, каменни огради и мазилка.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header class="topbar">
-  <div class="container">
-    <div class="brand">
-      <div class="logo">MN</div>
-      <div class="brand-text">
-        <h1>Майстор Насте</h1>
-        <p>Фасади, камък и мазилка — качество без компромиси</p>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo">MN</div>
+        <div class="brand-text">
+          <div id="brand-name">Майстор Насте</div>
+          <div id="brand-slogan">Фасади, камък и мазилка — качество без компромиси</div>
+        </div>
       </div>
-    </div>
-    <div class="actions">
-      <a href="tel:+359881234567" class="cta-btn">Вземете оферта</a>
+      <div class="actions">
+        <div class="lang" role="tablist" aria-label="language">
+          <button class="lang-btn active" data-lang="bg">BG</button>
+          <button class="lang-btn" data-lang="mk">MK</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a id="tel" href="tel:+359881234567" class="phone">+359 88 123 4567</a>
+      </div>
     </div>
   </div>
-</header>
 
-<section class="hero">
-  <div class="hero-left">
-    <h2>Фасади & Камен - професионално изпълнение</h2>
-    <p>Специализация: фасади, облицовки с гнајс, камини, каменни огради и мазилка.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="#contact">Вземете оферта</a>
-      <a class="btn ghost" href="#gallery">Галерия</a>
-    </div>
-    <ul class="stats">
-      <li><strong>15+</strong> години опит</li>
-      <li><strong>120+</strong> проекта</li>
-      <li><strong>3</strong> държави</li>
-    </ul>
-  </div>
-  <div class="hero-right">
-    <img src="https://majstor-naste-art.free.bg/images/1.jpeg" alt="Фасада">
-  </div>
-</section>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h1 id="hero-title">Фасади & Камен - професионално изпълнение</h1>
+        <p id="hero-sub">Специализация: фасади, облицовки с гнајс, камини, каменни огради и мазилка.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact" id="cta-btn">Вземете оферта</a>
+          <a class="btn ghost" href="#gallery">Галерия</a>
+        </div>
 
-<main class="container">
-
-  <section class="services">
-    <h2>Нашите услуги</h2>
-    <div class="grid services-grid">
-      <div class="service-card">
-        <img src="https://majstor-naste-art.free.bg/images/1.jpeg" alt="">
-        <h3>Фасади и изолации</h3>
-        <p>Топлоизолации, декоративни мазилки и довършителни работи за устойчив външен вид.</p>
+        <ul class="stats">
+          <li><strong>15+</strong><span id="stat-years">години</span></li>
+          <li><strong>120+</strong><span id="stat-projects">проекти</span></li>
+          <li><strong>3</strong><span id="stat-countries">държави</span></li>
+        </ul>
       </div>
-      <div class="service-card">
-        <img src="https://majstor-naste-art.free.bg/images/2.jpeg" alt="">
-        <h3>Облицовки с гнајс и камък</h3>
-        <p>Естествен камък за фасади и декоративни елементи с перфектен монтаж.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://majstor-naste-art.free.bg/images/3.jpeg" alt="">
-        <h3>Камини и декоративни елементи</h3>
-        <p>Дизайн и изпълнение на камини и вътрешни/външни каменни акценти.</p>
+
+      <div class="hero-right">
+        <div class="card image-card">
+          <img src="https://majstor-naste-art.free.bg/images/hero.jpg" alt="Фасада" onerror="this.onerror=null;this.src='https://via.placeholder.com/800x600?text=Majstor+Naste'">
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <section id="gallery">
-    <h2>Галерия</h2>
-    <div class="gallery-grid">
-      <img src="https://majstor-naste-art.free.bg/images/1.jpeg" alt="Project 1">
-      <img src="https://majstor-naste-art.free.bg/images/2.jpeg" alt="Project 2">
-      <img src="https://majstor-naste-art.free.bg/images/3.jpeg" alt="Project 3">
-      <img src="https://majstor-naste-art.free.bg/images/4.jpeg" alt="Project 4">
-      <img src="https://majstor-naste-art.free.bg/images/5.jpeg" alt="Project 5">
-      <img src="https://majstor-naste-art.free.bg/images/6.jpeg" alt="Project 6">
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Свържете се с нас</h2>
-    <div class="contact-container">
-      <div class="contact-info">
-        <p>Телефон: <a href="tel:+359881234567">+359 88 123 4567</a></p>
-        <p>Имейл: <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
-        <a class="btn ghost" href="https://wa.me/359881234567" target="_blank">WhatsApp</a>
+  <main class="container">
+    <section class="services" aria-labelledby="services-title">
+      <h2 id="services-title">Услуги</h2>
+      <div class="grid services-grid">
+        <article class="service">
+          <img src="https://majstor-naste-art.free.bg/images/fasada1.jpg" alt="" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300'">
+          <h3>Фасади и изолации</h3>
+          <p>Топлоизолации, декоративни мазилки и довършителни работи за устойчив външен вид.</p>
+        </article>
+        <article class="service">
+          <img src="https://majstor-naste-art.free.bg/images/gnajs1.jpg" alt="" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300'">
+          <h3>Облицовки с гнајс и камък</h3>
+          <p>Естествен камък за фасади и декоративни елементи с перфектен монтаж.</p>
+        </article>
+        <article class="service">
+          <img src="https://majstor-naste-art.free.bg/images/kamin1.jpg" alt="" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300'">
+          <h3>Камини и декоративни елементи</h3>
+          <p>Дизайн и изпълнение на камини и вътрешни/външни каменни акценти.</p>
+        </article>
       </div>
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Име/Телефон">
-        <input type="email" name="email" placeholder="Имейл">
-        <textarea name="message" placeholder="Съобщение"></textarea>
-        <button type="submit">Изпрати</button>
-      </form>
+    </section>
+
+    <section id="gallery-section">
+      <h2>Галерия</h2>
+      <div id="gallery" class="masonry">
+        <!-- images injected by script for easy replacement -->
+      </div>
+    </section>
+
+    <section id="why">
+      <h2>Защо да изберете нас</h2>
+      <div class="cards">
+        <div class="card">
+          <h4>Качество</h4>
+          <p>Използваме внимателно подбрани материали и техника.</p>
+        </div>
+        <div class="card">
+          <h4>Опит</h4>
+          <p>Екип с десетки реализирани проекти и доволни клиенти.</p>
+        </div>
+        <div class="card">
+          <h4>Гаранция</h4>
+          <p>Предоставяме гаранция на извършените работи.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Свържете се</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p>Ние работим в <strong id="loc">Вашият град</strong>. Обадете се или пишете за безплатен оглед.</p>
+          <p><strong>Телефон:</strong> <a href="tel:+359881234567">+359 88 123 4567</a></p>
+          <p><strong>Имейл:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
+          <p><a class="btn ghost" href="https://wa.me/359881234567" target="_blank">WhatsApp</a></p>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label><span id="lbl-name">Име/Телефон</span><input id="in-name" name="name"></label>
+          <label><span id="lbl-email">Имейл</span><input id="in-email" name="email"></label>
+          <label><span id="lbl-msg">Съобщение</span><textarea id="in-message" name="message"></textarea></label>
+          <div class="row" style="justify-content:flex-end;gap:10px">
+            <button type="reset" class="btn ghost">Изчисти</button>
+            <button type="submit" class="btn primary" id="send">Изпрати</button>
+          </div>
+          <div id="contact-status" class="muted"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© <span id="yr"></span> Майстор Насте</div>
+        <div class="foot-links"><a href="#contact">Контакт</a></div>
+      </div>
     </div>
-  </section>
-
-</main>
-
-<footer>
-  <p>© <span id="yr"></span> Майстор Насте</p>
-</footer>
+  </footer>
 
 <script src="script.js"></script>
 </body>
