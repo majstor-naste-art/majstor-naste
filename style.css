@@ -1,98 +1,105 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Segoe UI", sans-serif; color: #222; line-height: 1.6; }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fafafa;
-  color: #222;
-  line-height: 1.6;
-}
+.container { width: 90%; max-width: 1200px; margin: auto; }
 
-header {
+/* Navbar */
+.navbar {
   background: #333;
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-inner {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-links { display: flex; list-style: none; gap: 1.5rem; }
+.nav-links a { color: #fff; text-decoration: none; font-weight: 500; }
+.nav-links a:hover { color: #ffd700; }
+
+/* Hero */
+.hero {
+  background: url("sliki/1.jpg") center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 10rem 1rem;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.hero p { margin-bottom: 2rem; }
+.btn {
+  background: #ffd700;
+  color: #333;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn:hover { background: #e6c200; }
+
+/* Services */
+.services { padding: 4rem 1rem; text-align: center; background: #f7f7f7; }
+.service-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem; margin-top: 2rem;
+}
+.service {
+  background: white; padding: 2rem; border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.gallery-section {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.gallery-section h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-}
-
-.gallery {
+/* Gallery */
+.gallery-section { padding: 4rem 1rem; text-align: center; }
+.gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  gap: 1rem; margin-top: 2rem;
 }
-
-.gallery img {
-  width: 100%;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+.gallery-grid img {
+  width: 100%; border-radius: 10px; cursor: pointer;
+  transition: transform 0.3s;
 }
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-footer {
-  text-align: center;
-  background: #333;
-  color: #ccc;
-  padding: 1rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-}
+.gallery-grid img:hover { transform: scale(1.05); }
 
 /* Lightbox */
 .lightbox {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.9);
+  display: none; position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%; background: rgba(0,0,0,0.9);
+  justify-content: center; align-items: center; z-index: 999;
 }
-
-.lightbox-content {
-  margin: auto;
-  display: block;
-  width: 90%;
-  max-width: 900px;
-  border-radius: 10px;
+.lightbox-img {
+  max-width: 90%; max-height: 80%; border-radius: 10px;
 }
-
 .close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
+  position: absolute; top: 30px; right: 50px;
+  font-size: 2rem; color: white; cursor: pointer;
 }
 
-.close:hover {
-  color: #f1f1f1;
+/* Contact */
+.contact { padding: 4rem 1rem; background: #fafafa; }
+.contact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; margin-top: 2rem;
+}
+.contact form { display: flex; flex-direction: column; gap: 1rem; }
+.contact input, .contact textarea {
+  padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px;
+}
+
+/* Footer */
+footer {
+  text-align: center; background: #333; color: #ccc;
+  padding: 1rem; font-size: 0.9rem;
 }
