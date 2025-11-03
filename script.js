@@ -8,7 +8,7 @@ galleryImages.forEach(i => {
   const img = document.createElement("img");
   img.src = `https://majstor-naste-art.free.bg/images/${i}.jpeg`;
   img.alt = `Project ${i}`;
-  img.onerror = () => img.src = `https://via.placeholder.com/400x300?text=Project+${i}`;
+  img.onerror = () => img.src = `https://placehold.co/400x300?text=Project+${i}`;
   galleryContainer.appendChild(img);
 });
 
