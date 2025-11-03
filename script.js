@@ -1,98 +1,62 @@
-// script.js
+const TOTAL_IMAGES = 13;
 
 // -------------------
-// CONFIG
+// LANGUAGE
 // -------------------
-const TOTAL_IMAGES = 13; // број на слики во папката "sliki"
-const LANGS_ACTIVE = ["bg", "mk","gb"]; // кои јазици се активни
-let currentLang = "bg"; // default јазик
-
-// -------------------
-// LANGUAGE SWITCH
-// -------------------
-function setLanguage(lang) {
-  currentLang = lang;
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.classList.remove("active");
-  });
-  LANGS_ACTIVE.forEach(l => {
-    const btn = document.querySelector(`.lang-btn[data-lang="${l}"]`);
-    if(btn) btn.classList.add("active");
-  });
-  
-  // Тука можеш да додадеш и промена на текстовите на страната според lang
+function setLanguage(lang){
+  document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("active"));
+  document.querySelector(`.lang-btn[data-lang="${lang}"]`)?.classList.add("active");
+  // можеш да додадеш промена на текст според lang
 }
 
-// Иницијализирај јазикот при load
-setLanguage(currentLang);
+// Default BG
+setLanguage("bg");
 
-// Додади click events
-document.querySelectorAll(".lang-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    setLanguage(btn.dataset.lang);
-  });
+// Click events
+document.querySelectorAll(".lang-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>setLanguage(btn.dataset.lang));
 });
 
 // -------------------
-// HERO SECTION ACTIVE
+// HERO ACTIVE
 // -------------------
-document.addEventListener("DOMContentLoaded", () => {
-  const hero = document.querySelector(".hero");
-  if(hero) hero.classList.add("active");
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelector(".hero")?.classList.add("active");
 });
 
 // -------------------
-// GALLERY AUTOMATIC LOAD
+// GALLERY
 // -------------------
-function loadGallery() {
-  const gallery = document.getElementById("gallery");
+function loadGallery(){
+  const gallery=document.getElementById("gallery");
   if(!gallery) return;
 
-  for(let i = 1; i <= TOTAL_IMAGES; i++) {
-    const img = document.createElement("img");
-    img.src = `sliki/${i}.jpg`;
-    img.alt = `Проект ${i}`;
-    img.className = "gallery-img";
-    img.onerror = function() {
-      this.onerror = null;
-      this.src = "https://placehold.co/400x300?text=Majstor+Naste";
-    };
-    
-    // Optional: ако сакаш да се отвора во lightbox
-    img.addEventListener("click", () => {
-      openLightbox(i);
-    });
-
+  for(let i=1;i<=TOTAL_IMAGES;i++){
+    const img=document.createElement("img");
+    img.src=`sliki/${i}.jpg`;
+    img.alt=`Проект ${i}`;
+    img.className="gallery-img";
+    img.onerror=function(){this.onerror=null;this.src="https://placehold.co/400x300?text=Majstor+Naste"};
+    img.addEventListener("click",()=>openLightbox(i));
     gallery.appendChild(img);
   }
 }
 
 // -------------------
-// SIMPLE LIGHTBOX
+// LIGHTBOX
 // -------------------
-function openLightbox(index) {
-  const overlay = document.createElement("div");
-  overlay.className = "lightbox-overlay";
-  overlay.innerHTML = `
+function openLightbox(index){
+  const overlay=document.createElement("div");
+  overlay.className="lightbox-overlay";
+  overlay.innerHTML=`
     <div class="lightbox-content">
       <img src="sliki/${index}.jpg" alt="Проект ${index}">
       <span class="lightbox-close">&times;</span>
-    </div>
-  `;
+    </div>`;
   document.body.appendChild(overlay);
 
-  overlay.querySelector(".lightbox-close").addEventListener("click", () => {
-    document.body.removeChild(overlay);
-  });
-
-  overlay.addEventListener("click", (e) => {
-    if(e.target === overlay) document.body.removeChild(overlay);
-  });
+  overlay.querySelector(".lightbox-close").addEventListener("click",()=>document.body.removeChild(overlay));
+  overlay.addEventListener("click",(e)=>{if(e.target===overlay) document.body.removeChild(overlay)});
 }
 
-// -------------------
-// INIT
-// -------------------
-document.addEventListener("DOMContentLoaded", () => {
-  loadGallery();
-});
+document.addEventListener("DOMContentLoaded",()=>loadGallery());
