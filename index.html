@@ -1,122 +1,68 @@
 <!doctype html>
-<html lang="mk">
+<html lang="bg">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Мајстор Насте — Фасади & Камен</title>
-  <meta name="description" content="Фасади, гнајс, камини, камен и мазилка.">
+  <title>Майстор Насте — Фасади & Камен</title>
+  <meta name="description" content="Майстор Насте — фасади, гнајс, камини, каменни огради и мазилка.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
       <div class="brand">
         <div class="logo">MN</div>
         <div class="brand-text">
-          <div id="brand-name">Мајстор Насте</div>
-          <div id="brand-slogan">Фасади, камен и мазилка</div>
+          <div id="brand-name">Майстор Насте</div>
+          <div id="brand-slogan">Фасади, камък и мазилка — качество без компромиси</div>
         </div>
       </div>
-
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#hero" class="nav-link" data-section="home">Почетна</a>
-        <a href="#services" class="nav-link" data-section="services">Услуги</a>
-        <a href="#gallery" class="nav-link" data-section="gallery">Галерија</a>
-        <a href="#contact" class="nav-link" data-section="contact">Контакт</a>
-      </nav>
-
-      <div class="tools">
-        <div class="lang-switch" role="tablist" aria-label="Languages">
-          <button class="lang-btn active" data-lang="mk" title="Македонски">🇲🇰</button>
-          <button class="lang-btn" data-lang="bg" title="Български">🇧🇬</button>
-          <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+      <div class="actions">
+        <div class="lang" role="tablist" aria-label="language">
+          <button class="lang-btn active" data-lang="bg">
+            <img src="flags/bg.png" alt="BG" class="flag-icon"> BG
+          </button>
+          <button class="lang-btn" data-lang="mk">
+            <img src="flags/mk.png" alt="MK" class="flag-icon"> MK
+          </button>
+          <button class="lang-btn" data-lang="en">
+            <img src="flags/en.png" alt="EN" class="flag-icon"> EN
+          </button>
         </div>
-        <a class="phone" href="tel:+359881234567">+359 88 123 4567</a>
+        <a id="tel" href="tel:+359881234567" class="phone">+359 88 123 4567</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="hero active">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h1>Фасади & Камен - професионално изпълнение</h1>
+        <p>Специализация: фасади, облицовки с гнајс, камини, каменни огради и мазилка.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Вземете оферта</a>
+          <a class="btn ghost" href="#gallery">Галерия</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="card image-card">
+          <img src="sliki/1.jpg" alt="Фасада" onerror="this.src='https://placehold.co/800x600?text=Majstor+Naste'">
+        </div>
       </div>
     </div>
   </header>
 
-  <section id="hero" class="hero">
-    <img class="hero-bg" src="sliki/1.jpg" alt="Фасада">
-    <div class="hero-overlay"></div>
-    <div class="hero-content container">
-      <h1 id="hero-title">Фасади & Камен — професионално изведување</h1>
-      <p id="hero-sub">Специјализација: фасади, облицовки, камини и мазилки.</p>
-      <div class="hero-ctas">
-        <a id="cta-quote" class="btn primary" href="#contact">Барај проценка</a>
-        <a id="cta-gallery" class="btn ghost" href="#gallery">Галерија</a>
-      </div>
-    </div>
-  </section>
-
+  <!-- MAIN -->
   <main class="container">
-    <section id="services" class="services">
-      <h2 id="services-title">Нашите услуги</h2>
-      <div class="services-grid">
-        <article class="card">
-          <img src="sliki/1.jpg" alt="">
-          <h3 id="s1-title">Фасади и изолации</h3>
-          <p id="s1-desc">Топла изолација, декоративни мазилки и завршни фасадни работи.</p>
-        </article>
-        <article class="card">
-          <img src="sliki/2.jpg" alt="">
-          <h3 id="s2-title">Облицовки с гнајс</h3>
-          <p id="s2-desc">Облицовки со природен камен — здравина и стил.</p>
-        </article>
-        <article class="card">
-          <img src="sliki/3.jpg" alt="">
-          <h3 id="s3-title">Камини и огради</h3>
-          <p id="s3-desc">Камини, огради и декоративни каменни елементи.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="gallery" class="gallery-section">
-      <h2 id="gallery-title">Галерија</h2>
-      <div class="gallery-grid" id="gallery-grid" aria-live="polite">
-        <!-- injected by JS -->
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <h2 id="contact-title">Контакт</h2>
-      <div class="contact-grid">
-        <div class="contact-info card-dark">
-          <p><strong id="contact-phone-label">Телефон:</strong> <a href="tel:+359881234567">+359 88 123 4567</a></p>
-          <p><strong id="contact-email-label">Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
-          <p id="contact-where">Работиме во: Вашата локација</p>
-          <a class="btn ghost" href="https://wa.me/359881234567" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-
-        <form id="contact-form" class="contact-form card-dark" aria-label="Contact form">
-          <label><span id="lbl-name">Име / Телефон</span><input name="name" required></label>
-          <label><span id="lbl-email">Е-пошта</span><input name="email" type="email" required></label>
-          <label><span id="lbl-msg">Съобщение</span><textarea name="message" rows="5" required></textarea></label>
-          <div class="form-row">
-            <button type="reset" class="btn ghost">Изчисти</button>
-            <button type="submit" class="btn primary" id="send-btn">Испрати</button>
-          </div>
-          <div id="contact-status" class="muted" role="status" aria-live="polite"></div>
-        </form>
-      </div>
+    <section id="gallery-section">
+      <h2>Галерия</h2>
+      <div id="gallery" class="masonry"></div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> <span id="footer-name">Мајстор Насте</span></div>
-      <div class="footer-links"><a href="#contact" id="footer-contact-link">Контакт</a></div>
-    </div>
-  </footer>
-
-  <!-- Lightbox with blur/backdrop -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button class="lb-close" aria-label="Close">✕</button>
-    <button class="lb-prev" aria-label="Previous">‹</button>
-    <img id="lb-img" alt="">
-    <button class="lb-next" aria-label="Next">›</button>
-  </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
