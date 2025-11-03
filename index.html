@@ -1,10 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Майстор Насте — Фасади & Камен</title>
-  <meta name="description" content="Майстор Насте — фасади, гнајс, камини, каменни огради и мазилка.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,47 +21,86 @@
       <div class="actions">
         <div class="lang" role="tablist" aria-label="language">
           <button class="lang-btn active" data-lang="bg">
-            <img src="flags/bg.png" alt="BG" class="flag-icon"> BG
+            <img src="flags/bg.png" class="flag-icon"> BG
           </button>
           <button class="lang-btn" data-lang="mk">
-            <img src="flags/mk.png" alt="MK" class="flag-icon"> MK
+            <img src="flags/mk.png" class="flag-icon"> MK
           </button>
           <button class="lang-btn" data-lang="en">
-            <img src="flags/en.png" alt="EN" class="flag-icon"> EN
+            <img src="flags/en.png" class="flag-icon"> EN
           </button>
         </div>
-        <a id="tel" href="tel:+359881234567" class="phone">+359 88 123 4567</a>
+        <a href="tel:+359881234567" class="phone">+359 88 123 4567</a>
       </div>
     </div>
   </div>
 
-  <!-- HERO SECTION -->
-  <header class="hero active">
+  <!-- HERO -->
+  <header class="hero">
     <div class="container hero-inner">
       <div class="hero-left">
         <h1>Фасади & Камен - професионално изпълнение</h1>
         <p>Специализация: фасади, облицовки с гнајс, камини, каменни огради и мазилка.</p>
         <div class="cta-row">
-          <a class="btn primary" href="#contact">Вземете оферта</a>
-          <a class="btn ghost" href="#gallery">Галерия</a>
+          <a href="#contact" class="btn primary">Вземете оферта</a>
+          <a href="#gallery" class="btn ghost">Галерия</a>
         </div>
+        <ul class="stats">
+          <li><strong>15+</strong> години</li>
+          <li><strong>120+</strong> проекти</li>
+          <li><strong>3</strong> държави</li>
+        </ul>
       </div>
       <div class="hero-right">
-        <div class="card image-card">
-          <img src="sliki/1.jpg" alt="Фасада" onerror="this.src='https://placehold.co/800x600?text=Majstor+Naste'">
-        </div>
+        <img src="sliki/1.jpg" alt="Фасада" onerror="this.src='https://via.placeholder.com/800x600?text=Majstor+Naste'">
       </div>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="container">
-    <section id="gallery-section">
-      <h2>Галерия</h2>
-      <div id="gallery" class="masonry"></div>
-    </section>
-  </main>
+  <!-- SERVICES -->
+  <section class="services">
+    <h2>Услуги</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="sliki/2.jpg" alt="" onerror="this.src='https://via.placeholder.com/400x300'">
+        <h3>Фасади и изолации</h3>
+        <p>Топлоизолации, декоративни мазилки и довършителни работи.</p>
+      </div>
+      <div class="service-card">
+        <img src="sliki/3.jpg" alt="" onerror="this.src='https://via.placeholder.com/400x300'">
+        <h3>Облицовки с гнајс и камък</h3>
+        <p>Естествен камък за фасади и декоративни елементи.</p>
+      </div>
+      <div class="service-card">
+        <img src="sliki/4.jpg" alt="" onerror="this.src='https://via.placeholder.com/400x300'">
+        <h3>Камини и декоративни елементи</h3>
+        <p>Дизайн и изпълнение на камини и каменни акценти.</p>
+      </div>
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <!-- GALLERY -->
+  <section id="gallery-section">
+    <h2>Галерия</h2>
+    <div id="gallery" class="masonry"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Свържете се</h2>
+    <form class="contact-form" id="contact-form">
+      <label>Име/Телефон<input name="name"></label>
+      <label>Имейл<input name="email"></label>
+      <label>Съобщение<textarea name="message"></textarea></label>
+      <button type="submit" class="btn primary">Изпрати</button>
+      <button type="reset" class="btn ghost">Изчисти</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© <span id="yr"></span> Майстор Насте</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
