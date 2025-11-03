@@ -1,12 +1,321 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bg">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Majstor Naste – Facades & Stone Works</title>
-  </head>
-  <body class="bg-gray-50">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Majstor Naste — Facades & Stone Works</title>
+  <meta name="description" content="Майстор Насте — фасади, камък, облицовки, камини и мазилка. Качествена работа и дълготрайни решения.">
+  <style>
+    :root{
+      --bg:#f8fafb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#b45309; /* amber-700 / sand */
+      --accent-2:#f59e0b;
+      --shadow: 0 6px 18px rgba(15,23,42,0.08);
+      --radius:14px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#f1f5f9,white);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--maxw);margin:32px auto;padding:20px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);padding:14px;border-radius:12px;box-shadow:var(--shadow);}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent-2),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px;box-shadow:0 6px 18px rgba(180,83,9,0.18)}
+    .brand h1{font-size:18px;margin:0}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    .lang-switch button{border:0;background:transparent;padding:8px 10px;border-radius:8px;font-size:13px;cursor:pointer;color:var(--muted)}
+    .lang-switch button.active{background:var(--accent);color:white}
+    .contact-cta{display:flex;gap:8px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+    .btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(15,23,42,0.06)}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;margin-top:22px}
+    @media(min-width:900px){.hero{grid-template-columns:1fr 520px;align-items:center}}
+    .hero h2{font-size:34px;margin:0 0 8px}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .services-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:640px){.services-grid{grid-template-columns:1fr 1fr}}
+    .service-card{display:flex;gap:12px;background:var(--card);padding:12px;border-radius:12px;box-shadow:var(--shadow);align-items:flex-start}
+    .service-icon{width:46px;height:46;border-radius:10px;background:rgba(245,158,11,0.12);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    .hero-image{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block;min-height:320px}
+    /* section titles */
+    h3.section-title{font-size:20px;margin:28px 0 12px}
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    @media(min-width:640px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:1000px){.gallery{grid-template-columns:repeat(4,1fr)}}
+    .gallery img{width:100%;height:170px;object-fit:cover;border-radius:10px;display:block;box-shadow:var(--shadow)}
+    /* services list */
+    .expert-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    @media(min-width:900px){.expert-grid{grid-template-columns:repeat(3,1fr)}}
+    .expert{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow)}
+    .expert h4{margin:0 0 6px}
+    .expert p{margin:0;color:var(--muted);font-size:14px}
+    /* contact */
+    .contact-wrap{display:grid;grid-template-columns:1fr;gap:18px}
+    @media(min-width:900px){.contact-wrap{grid-template-columns:1fr 420px}}
+    .contact-card{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow)}
+    .form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+    input,textarea{width:100%;padding:10px;border:1px solid #e6e9ef;border-radius:10px;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .muted{color:var(--muted);font-size:13px}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+    a.link{color:var(--accent);text-decoration:none}
+    /* small util */
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+  <div class="wrap" id="site">
+    <header>
+      <div class="brand">
+        <div class="logo">MN</div>
+        <div>
+          <h1 id="brand-name">Майстор Насте</h1>
+          <p id="brand-slogan">Фасади, камък и мазилка — качество без компромиси</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="lang-switch" role="tablist" aria-label="Language switch">
+          <button data-lang="bg" class="active">BG</button>
+          <button data-lang="mk">MK</button>
+          <button data-lang="en">EN</button>
+        </div>
+
+        <div class="contact-cta">
+          <a class="btn" href="tel:+359881234567" id="tel-link">+359 88 123 4567</a>
+          <a class="btn secondary" id="email-link" href="mailto:info@majstornaste.example">info@majstornaste.example</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h2 id="hero-title">Майстор Насте — фасади и каменни решения</h2>
+        <p id="hero-sub">Специализираме в фасади, облицовки с гнајс, камини, каменни огради и мазилка. Качество и дълготрайност.</p>
+
+        <div class="row" style="margin-top:14px">
+          <a class="btn" href="tel:+359881234567">Вземете безплатна оферта</a>
+          <a class="btn secondary" href="mailto:info@majstornaste.example">Пишете ни</a>
+        </div>
+
+        <div class="services-grid" style="margin-top:18px">
+          <div class="service-card">
+            <div class="service-icon">1</div>
+            <div>
+              <div style="font-weight:700">Фасади и изолации</div>
+              <div class="muted">Топлинна и визуална защита с професионално изпълнение.</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">2</div>
+            <div>
+              <div style="font-weight:700">Облицовки с гнајс и камък</div>
+              <div class="muted">Естетика и дълготрайност със селектиран камък.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image" aria-hidden="true">
+        <img id="hero-img" src="https://majstor-naste-art.free.bg/images/hero.jpg" alt="Фасада - пример" onerror="this.onerror=null;this.src='https://via.placeholder.com/800x600?text=Majstor+Naste'">
+      </div>
+    </section>
+
+    <!-- Expertise -->
+    <h3 class="section-title">Експертни услуги</h3>
+    <div class="expert-grid">
+      <div class="expert">
+        <h4>Фасади</h4>
+        <p>Топлоизолация, мазилки, декоративни пластове и довършителни работи за перфектен външен вид.</p>
+      </div>
+      <div class="expert">
+        <h4>Каменни облицовки</h4>
+        <p>Облицовки с гнајс, декоративни камъни и прецизен монтаж за дълготрайна визия.</p>
+      </div>
+      <div class="expert">
+        <h4>Камини & Оградa</h4>
+        <p>Декоративни камини, градински огради, входни пътеки и други елементи от естествен камък.</p>
+      </div>
+    </div>
+
+    <!-- Gallery -->
+    <h3 class="section-title">Галерия: фасади и каменни решения</h3>
+    <div class="gallery" id="gallery">
+      <!-- gallery images (will fallback to placeholder if missing) -->
+      <img src="https://majstor-naste-art.free.bg/images/fasada1.jpg" alt="fasada1" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Project+1'">
+      <img src="https://majstor-naste-art.free.bg/images/fasada2.jpg" alt="fasada2" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Project+2'">
+      <img src="https://majstor-naste-art.free.bg/images/gnajs1.jpg" alt="gnajs" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Project+3'">
+      <img src="https://majstor-naste-art.free.bg/images/kamin1.jpg" alt="kamin" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Project+4'">
+      <img src="https://majstor-naste-art.free.bg/images/ograda1.jpg" alt="ograda" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Project+5'">
+      <img src="https://majstor-naste-art.free.bg/images/kuka_kamen1.jpg" alt="kuka" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Project+6'">
+      <img src="https://majstor-naste-art.free.bg/images/mazilka1.jpg" alt="mazilka" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Project+7'">
+      <img src="https://majstor-naste-art.free.bg/images/p7.jpg" alt="p7" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Project+8'">
+    </div>
+
+    <!-- Contact -->
+    <h3 class="section-title">Свържете се с нас</h3>
+    <div class="contact-wrap">
+      <div>
+        <div class="contact-card">
+          <p class="muted">Работим в района на <strong id="map-loc">Your town, Bulgaria</strong>. Свържете се за безплатен оглед и оферта.</p>
+          <p><strong>Телефон:</strong> <a class="link" href="tel:+359881234567">+359 88 123 4567</a></p>
+          <p><strong>Имейл:</strong> <a class="link" href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
+          <div style="margin-top:12px" class="row">
+            <a class="btn secondary" href="https://wa.me/359881234567" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="btn secondary" href="https://maps.google.com?q=Your+town,+Bulgaria" target="_blank" rel="noreferrer">Open map</a>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="contact-card">
+          <iframe title="map" src="https://maps.google.com/maps?q=Your+town,+Bulgaria&output=embed" style="width:100%;height:220px;border:0;border-radius:12px"></iframe>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-card" id="contact-form">
+          <div class="form-row">
+            <label for="name" class="muted" id="label-name">Име / Телефон</label>
+            <input id="name" name="name" placeholder="Име или телефон">
+          </div>
+          <div class="form-row">
+            <label for="email" class="muted" id="label-email">Имейл</label>
+            <input id="email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <label for="message" class="muted" id="label-message">Съобщение</label>
+            <textarea id="message" name="message" placeholder="Кратко описание на работата"></textarea>
+          </div>
+
+          <div class="row">
+            <button type="submit" class="btn" id="send-btn">Изпрати</button>
+            <button type="button" class="btn secondary" onclick="document.getElementById('contact-form').reset();">Изчисти</button>
+            <div id="form-status" style="margin-left:8px;color:green"></div>
+          </div>
+
+          <p style="margin-top:10px" class="muted" id="form-note">Формата използва вашият имейл клиент (mailto). Ако желаете директно изпращане, активирайте EmailJS или Formspree.</p>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="year"></span> <span id="brand-footer">Майстор Насте</span> — Всички права запазени.
+    </footer>
+  </div>
+
+  <script>
+    // basic multilingual content
+    const TEXT = {
+      bg: {
+        brand: "Майстор Насте",
+        slogan: "Фасади, камък и мазилка — качество без компромиси",
+        heroTitle: "Майстор Насте — фасади и каменни решения",
+        heroSub: "Специализираме в фасади, облицовки с гнајс, камини, каменни огради и мазилка. Качество и дълготрайност.",
+        services: ["Фасади и изолации","Облицовки с гнајс и камък"],
+        servicesShort: ["Топлоизолация, мазилки и декоративни пластове.","Естетика и дълготрайност със селектиран камък."],
+        expertiseTitle: "Експертни услуги",
+        galleryTitle: "Галерия: фасади и каменни решения",
+        contactTitle: "Свържете се с нас",
+        nameLabel: "Име / Телефон",
+        emailLabel: "Имейл",
+        messageLabel: "Съобщение",
+        send: "Изпрати",
+        thanks: "Благодарим — получихме съобщението!"
+      },
+      mk: {
+        brand: "Мајстор Насте",
+        slogan: "Фасади, камен и малтер — квалитет без компромис",
+        heroTitle: "Мајстор Насте — фасади и камени решенија",
+        heroSub: "Специјализирани за фасади, облицовки со гнајс, камини, камени огради и малтер. Квалитет и долготрајност.",
+        services: ["Фасади и изолации","Обложувања со гнајс и камен"],
+        servicesShort: ["Топлинска изолација и декоративни слоеви.","Естетика и долготрајност со избран камен."],
+        expertiseTitle: "Експертски услуги",
+        galleryTitle: "Галерија: фасади и камени решенија",
+        contactTitle: "Контакт",
+        nameLabel: "Име / Телефон",
+        emailLabel: "Е-пошта",
+        messageLabel: "Порака",
+        send: "Испрати",
+        thanks: "Фала — ја примивме пораката!"
+      },
+      en: {
+        brand: "Majstor Naste",
+        slogan: "Facades, stone and plaster — quality without compromise",
+        heroTitle: "Majstor Naste — facades & stone solutions",
+        heroSub: "We specialize in facades, gneiss cladding, fireplaces, stone fences and plaster. Quality & durability.",
+        services: ["Facades & insulation","Gneiss & stone cladding"],
+        servicesShort: ["Thermal insulation, plaster and decorative finishes.","Long-lasting aesthetics and natural stone look."],
+        expertiseTitle: "Our expertise",
+        galleryTitle: "Gallery: facades & stone works",
+        contactTitle: "Contact",
+        nameLabel: "Name / Phone",
+        emailLabel: "Email",
+        messageLabel: "Message",
+        send: "Send message",
+        thanks: "Thanks — we got your message!"
+      }
+    };
+
+    // language switch
+    const langButtons = document.querySelectorAll('.lang-switch button');
+    function setLang(lang){
+      // update active state
+      langButtons.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+      document.documentElement.lang = (lang==='en'?'en':'bg');
+      const t = TEXT[lang];
+      document.getElementById('brand-name').textContent = t.brand;
+      document.getElementById('brand-slogan').textContent = t.slogan;
+      document.getElementById('hero-title').textContent = t.heroTitle;
+      document.getElementById('hero-sub').textContent = t.heroSub;
+      document.querySelector('.section-title').textContent = t.expertiseTitle; // first section title
+      // multiple labels
+      document.getElementById('label-name').textContent = t.nameLabel;
+      document.getElementById('label-email').textContent = t.emailLabel;
+      document.getElementById('label-message').textContent = t.messageLabel;
+      document.getElementById('send-btn').textContent = t.send;
+      document.getElementById('form-note').textContent = lang==='en' ? 'Tip: integrate EmailJS or Formspree to send messages without leaving the page.' : t.send==='Send message' ? 'Tip: integrate EmailJS or Formspree to send messages without leaving the page.' : '';
+      // footer brand
+      document.getElementById('brand-footer').textContent = t.brand;
+    }
+    langButtons.forEach(b=>b.addEventListener('click', ()=>setLang(b.dataset.lang)));
+    // set default
+    setLang('bg');
+
+    // handle form (mailto fallback)
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const t = TEXT[ document.querySelector('.lang-switch button.active').dataset.lang ];
+      if(!name && !email && !message){ document.getElementById('form-status').textContent = ''; return; }
+      const subject = encodeURIComponent(`${t.brand} - Website inquiry`);
+      const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
+      // open mail client
+      window.location.href = `mailto:info@majstornaste.example?subject=${subject}&body=${body}`;
+      document.getElementById('form-status').textContent = t.thanks;
+      setTimeout(()=>document.getElementById('form-status').textContent='',4000);
+    });
+
+    // dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // friendly tel/email links update (if you want to override)
+    document.getElementById('tel-link').href = 'tel:+359881234567';
+    document.getElementById('tel-link').textContent = '+359 88 123 4567';
+    document.getElementById('email-link').href = 'mailto:info@majstornaste.example';
+  </script>
+</body>
 </html>
