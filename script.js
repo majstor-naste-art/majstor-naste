@@ -70,7 +70,7 @@ for(let i=1;i<=TOTAL_IMAGES;i++){
   const img = document.createElement('img');
   img.src = IMAGE_SRC(i);
   img.alt = `Проект ${i}`;
-  img.dataset.index = i-1;
+  img.dataset.index = i-1,2;
   img.onerror = () => { img.src = 'https://placehold.co/800x600?text=Majstor+Naste'; };
   galleryGrid.appendChild(img);
   images.push(IMAGE_SRC(i));
