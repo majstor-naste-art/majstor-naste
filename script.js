@@ -1,6 +1,6 @@
 
 // data & translations
-const IMAGE_BASE = 'https://majstor-naste.uca.icu/';
+const IMAGE_BASE = 'https://majstor-naste-art.free.bg/images/';
 const galleryFiles = ['fasada1.jpg','fasada2.jpg','gnajs1.jpg','kamin1.jpg','ograda1.jpg','kuka_kamen1.jpg','mazilka1.jpg','p7.jpg'];
 
 const TEXT = {
@@ -65,7 +65,7 @@ galleryFiles.forEach(fn=>{
   img.src = IMAGE_BASE + fn;
   img.alt = fn;
   img.loading = 'lazy';
-  img.onerror = function(){ this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Project'; };
+  img.onerror = function(){ this.onerror=null; this.src='https://majstor-naste-art.free.bg/images/400x300?text=Project'; };
   gallery.appendChild(img);
 });
 
