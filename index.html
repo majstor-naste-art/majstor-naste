@@ -1,35 +1,91 @@
 <!DOCTYPE html>
 <html lang="mk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мајстор Насте — Галерија фасади и камен</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мајстор Насте — Фасади и Камен</title>
+  <meta name="description" content="Мајстор Насте — фасади, гнајс, камини, камен и декоративни мазилки.">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <header class="header">
-    <h1>Мајстор Насте</h1>
-    <p>Фасади, камен, гнајс и декоративна изолација</p>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">Мајстор Насте</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero">Почетна</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#gallery">Галерија</a></li>
+          <li><a href="#contact">Контакт</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="gallery-section">
-      <h2>Галерија</h2>
-      <div class="gallery" id="gallery">
-        <!-- Images injected by JS -->
-      </div>
-    </section>
-  </main>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Фасади, Камен и Мазилка</h1>
+      <p>Професионална изведба со квалитет и прецизност.</p>
+      <a href="#contact" class="btn">Контактирај не</a>
+    </div>
+  </section>
 
+  <!-- Services -->
+  <section id="services" class="services">
+    <h2>Наши Услуги</h2>
+    <div class="service-grid">
+      <div class="service">
+        <h3>Фасади и Изолации</h3>
+        <p>Топлоизолации, декоративни мазилки и завршни фасадни работи.</p>
+      </div>
+      <div class="service">
+        <h3>Камен и Гнајс</h3>
+        <p>Облицовки со природен камен за фасади и декоративни површини.</p>
+      </div>
+      <div class="service">
+        <h3>Камини и Огради</h3>
+        <p>Изработка на камини и камени огради со традиционален стил.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="gallery-section">
+    <h2>Галерија</h2>
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- images by JS -->
+    </div>
+  </section>
+
+  <!-- Lightbox -->
   <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
-    <div id="caption"></div>
+    <img class="lightbox-img" id="lightbox-img" alt="">
   </div>
 
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Контакт</h2>
+    <div class="contact-grid">
+      <div>
+        <p><strong>Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
+        <p><strong>Е-пошта:</strong> <a href="mailto:majstor.naste@gmail.com">majstor.naste@gmail.com</a></p>
+        <p><strong>Локација:</strong> Македонија / Бугарија</p>
+      </div>
+      <form>
+        <input type="text" placeholder="Вашето име" required />
+        <input type="email" placeholder="Вашиот е-маил" required />
+        <textarea placeholder="Порака" required></textarea>
+        <button type="submit" class="btn">Испрати</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Мајстор Насте | majstor-naste-art.github.io</p>
+    <p>© 2025 Мајстор Насте | Сите права задржани</p>
   </footer>
 
   <script src="script.js"></script>
