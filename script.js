@@ -1,7 +1,7 @@
 /* CONFIG */
 const TOTAL_IMAGES = 30;
 const IMAGE_SRC = i => `sliki/${i}.jpg`;
-const IMAGE_SRC = i => `sliki/${i}.png`;
+
 /* DOM */
 const yearEl = document.getElementById('year');
 const galleryGrid = document.getElementById('gallery-grid');
