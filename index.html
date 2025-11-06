@@ -8,65 +8,57 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <header class="nav">
-  <div class="container nav-inner">
-    <div class="brand">
-      <div class="logo flash">MN</div>
-      <div class="brand-text">
-        <div id="brand-name">Мајстор Насте</div>
-        <div id="brand-slogan">Фасади, камен и мазилка</div>
-      </div>
-    </div>
-
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#hero" class="nav-link">Почетна</a>
-      <a href="#services" class="nav-link">Услуги</a>
-      <a href="#gallery" class="nav-link">Галерија</a>
-      <a href="#contact" class="nav-link">Контакт</a>
-    </nav>
-<!-- hamburger button -->
-<button class="hamburger" aria-label="Мену">
-  ☰
-</button>
-
-<!-- mobile menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-btn" aria-label="Затвори">✕</button>
-  <nav class="mobile-nav">
-    <a href="#hero">Почетна</a>
-    <a href="#services">Услуги</a>
-    <a href="#gallery">Галерија</a>
-    <a href="#contact">Контакт</a>
-  </nav>
-</div>
-   <div class="lang-switch">
-  <button class="lang-btn active" data-lang="mk" title="Македонски">🇲🇰</button>
-  <button class="lang-btn" data-lang="bg" title="Български">🇧🇬</button>
-  <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
-</div>
-
-      <div class="social">
-        <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook" aria-label="Facebook"></a>
-        <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram" aria-label="Instagram"></a>
-        <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram" aria-label="Telegram"></a>
+  <!-- HEADER -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo flash">MN</div>
+        <div class="brand-text">
+          <div id="brand-name">Мајстор Насте</div>
+          <div id="brand-slogan">Фасади, камен и мазилка</div>
+        </div>
       </div>
 
-      <button id="shareBtn" class="btn-share" title="Сподели">
-        🔗 Сподели
-      </button>
+      <nav class="main-nav">
+        <a href="#hero" class="nav-link">Почетна</a>
+        <a href="#services" class="nav-link">Услуги</a>
+        <a href="#gallery" class="nav-link">Галерија</a>
+        <a href="#contact" class="nav-link">Контакт</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Мену">☰</button>
+      <div class="mobile-menu" id="mobileMenu">
+        <button class="close-btn" aria-label="Затвори">✕</button>
+        <nav class="mobile-nav">
+          <a href="#hero">Почетна</a>
+          <a href="#services">Услуги</a>
+          <a href="#gallery">Галерија</a>
+          <a href="#contact">Контакт</a>
+        </nav>
+      </div>
+
+      <div class="tools">
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="mk" title="Македонски">🇲🇰</button>
+          <button class="lang-btn" data-lang="bg" title="Български">🇧🇬</button>
+          <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+        </div>
+        <div class="social">
+          <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook" aria-label="Facebook"></a>
+          <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram" aria-label="Instagram"></a>
+          <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram" aria-label="Telegram"></a>
+        </div>
+        <button id="shareBtn" class="btn-share">🔗 Сподели</button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-
+  <!-- HERO SLIDER -->
   <section id="hero" class="hero">
     <div class="slider">
-      <div class="slide active" style="background-image:url('sliki/28.jpg')"></div>
+      <div class="slide active" style="background-image:url('sliki/1.jpg')"></div>
       <div class="slide" style="background-image:url('sliki/2.jpg')"></div>
       <div class="slide" style="background-image:url('sliki/3.jpg')"></div>
-   <div class="slide active" style="background-image:url('sliki/27.jpg')"></div>
-      <div class="slide" style="background-image:url('sliki/17.jpg')"></div>
-      <div class="slide" style="background-image:url('sliki/15.jpg')"></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content container">
@@ -81,7 +73,7 @@
     <button class="slider-btn next">›</button>
   </section>
 
-
+  <!-- MAIN CONTENT -->
   <main class="container">
     <section id="services" class="services">
       <h2 id="services-title">Нашите услуги</h2>
@@ -106,30 +98,23 @@
 
     <section id="gallery" class="gallery-section">
       <h2 id="gallery-title">Галерија</h2>
-      <div class="gallery-grid" id="gallery-grid" aria-live="polite">
-        <!-- injected by JS -->
-      </div>
+      <div class="gallery-grid" id="gallery-grid"></div>
     </section>
 
     <section id="contact" class="contact-section">
       <h2 id="contact-title">Контакт</h2>
       <div class="contact-grid">
         <div class="contact-info card-dark">
-          <p><strong id="contact-phone-label">Телефон:</strong> <a href="tel:+359881234567">+359 88 123 4567</a></p>
+          <p><strong id="contact-phone-label">Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
           <p><strong id="contact-email-label">Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
-          <p id="contact-where">Работиме во: Вашата локација</p>
-          <a class="btn ghost" href="https://wa.me/359881234567" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" href="https://wa.me/38970123456" target="_blank">WhatsApp</a>
         </div>
-
-        <form id="contact-form" class="contact-form card-dark" aria-label="Contact form">
+        <form id="contact-form" class="contact-form card-dark">
           <label><span id="lbl-name">Име / Телефон</span><input name="name" required></label>
           <label><span id="lbl-email">Е-пошта</span><input name="email" type="email" required></label>
-          <label><span id="lbl-msg">Съобщение</span><textarea name="message" rows="5" required></textarea></label>
-          <div class="form-row">
-            <button type="reset" class="btn ghost">Изчисти</button>
-            <button type="submit" class="btn primary" id="send-btn">Испрати</button>
-          </div>
-          <div id="contact-status" class="muted" role="status" aria-live="polite"></div>
+          <label><span id="lbl-msg">Порака</span><textarea name="message" rows="5" required></textarea></label>
+          <button type="submit" class="btn primary" id="send-btn">Испрати</button>
+          <div id="contact-status" class="muted"></div>
         </form>
       </div>
     </section>
@@ -138,19 +123,16 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div>© <span id="year"></span> <span id="footer-name">Мајстор Насте</span></div>
-      <div class="footer-links"><a href="#contact" id="footer-contact-link">Контакт</a></div>
     </div>
   </footer>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button class="lb-close" aria-label="Close">✕</button>
-    <button class="lb-prev" aria-label="Previous">‹</button>
+  <div id="lightbox" class="lightbox">
+    <button class="lb-close">✕</button>
+    <button class="lb-prev">‹</button>
     <img id="lb-img" alt="">
-    <button class="lb-next" aria-label="Next">›</button>
+    <button class="lb-next">›</button>
   </div>
 
   <script src="script.js"></script>
-  <script src="https://chatbot-yoyh.onrender.com/static/widget.js" async></script>
 </body>
 </html>
