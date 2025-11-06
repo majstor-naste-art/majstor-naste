@@ -421,3 +421,26 @@ body{
   .main-nav { display: none; }
   .hamburger { display: block; }
 }
+
+.lang-switch {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.lang-btn {
+  font-size: 1.4rem;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  transform: scale(1.1);
+}
+
+.lang-btn.active {
+  border-color: gold;
+  box-shadow: 0 0 6px gold;
+}
