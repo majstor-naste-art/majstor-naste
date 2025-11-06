@@ -186,3 +186,92 @@ body{
   background: #ffd633;
   transform: scale(1.05);
 }
+
+/* HEADER FLASH EFFECT */
+.flash {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.flash::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* SOCIAL ICONS */
+.social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 10px;
+}
+
+.social-link {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+.facebook {
+  background-color: #1877f2;
+  background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg');
+}
+
+.instagram {
+  background-color: #e4405f;
+  background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg');
+}
+
+.telegram {
+  background-color: #0088cc;
+  background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/telegram.svg');
+}
+
+/* SHARE BUTTON */
+.btn-share {
+  background: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-share:hover {
+  background: #ffd633;
+  transform: scale(1.1);
+}
+
