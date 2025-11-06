@@ -32,3 +32,12 @@ const closeBtn = document.querySelector(".close-btn");
 hamburger.onclick = ()=>{ mobileMenu.classList.add("active"); document.body.style.overflow="hidden"; }
 closeBtn.onclick = ()=>{ mobileMenu.classList.remove("active"); document.body.style.overflow=""; }
 document.querySelectorAll(".mobile-nav a").forEach(a=>a.onclick=()=>{ mobileMenu.classList.remove("active"); document.body.style.overflow=""; });
+
+langBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    langBtns.forEach(x => x.classList.remove('active'));
+    btn.classList.add('active');
+    const lang = btn.dataset.lang;
+    applyLang(lang);
+  });
+});
