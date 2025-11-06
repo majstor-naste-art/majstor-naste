@@ -19,24 +19,15 @@
       </div>
     </div>
 
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Main navigation">
       <a href="#hero">Почетна</a>
       <a href="#services">Услуги</a>
       <a href="#gallery">Галерија</a>
       <a href="#contact">Контакт</a>
     </nav>
 
+    <!-- Hamburger за мобилни -->
     <button class="hamburger" aria-label="Мену">☰</button>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <button class="close-btn" aria-label="Затвори">✕</button>
-      <nav class="mobile-nav">
-        <a href="#hero">Почетна</a>
-        <a href="#services">Услуги</a>
-        <a href="#gallery">Галерија</a>
-        <a href="#contact">Контакт</a>
-      </nav>
-    </div>
 
     <div class="tools">
       <div class="lang-switch">
@@ -46,15 +37,27 @@
       </div>
 
       <div class="social">
-        <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook" aria-label="Facebook">f</a>
-        <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram" aria-label="Instagram">i</a>
-        <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram" aria-label="Telegram">t</a>
+        <a href="#" class="social-link facebook" aria-label="Facebook">F</a>
+        <a href="#" class="social-link instagram" aria-label="Instagram">I</a>
+        <a href="#" class="social-link telegram" aria-label="Telegram">T</a>
       </div>
 
-      <button id="shareBtn" class="btn-share">🔗 Сподели</button>
+      <button id="shareBtn" class="btn-share" title="Сподели">🔗 Сподели</button>
     </div>
   </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" aria-label="Затвори">✕</button>
+    <nav class="mobile-nav">
+      <a href="#hero">Почетна</a>
+      <a href="#services">Услуги</a>
+      <a href="#gallery">Галерија</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+  </div>
 </header>
+
 
 <section id="hero" class="hero">
   <div class="slider">
