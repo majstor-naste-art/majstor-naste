@@ -189,3 +189,32 @@ if (shareBtn && navigator.share) {
   });
 }
 
+// HERO SLIDER
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero .slide');
+const prevBtn = document.querySelector('.slider-btn.prev');
+const nextBtn = document.querySelector('.slider-btn.next');
+
+function showSlide(index) {
+  slides.forEach((s, i) => {
+    s.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+if (nextBtn && prevBtn) {
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+}
+
+// автоматска промена на 5 секунди
+setInterval(nextSlide, 5000);
