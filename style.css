@@ -444,3 +444,54 @@ body{
   border-color: gold;
   box-shadow: 0 0 6px gold;
 }
+/* NAV BUTTONS */
+.main-nav {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(4px);
+}
+
+.main-nav a:hover {
+  border-color: gold;
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.05);
+}
+
+.main-nav a.active {
+  border-color: gold;
+  background: rgba(255,215,0,0.15);
+  box-shadow: 0 0 8px rgba(255,215,0,0.5);
+}
+
+/* MOBILE MENU BUTTONS */
+.mobile-nav a {
+  display: block;
+  margin: 0.4rem 0;
+  padding: 0.7rem;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255,255,255,0.08);
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.mobile-nav a:hover {
+  border-color: gold;
+  background: rgba(255,215,0,0.2);
+  transform: scale(1.03);
+}
