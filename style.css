@@ -101,3 +101,23 @@ body{
   .hero{height:48vh}
   .hero-content p{font-size:.95rem}
 }
+
+.social-share {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: #ddd;
+}
+
+.social-share a {
+  color: #ddd;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.social-share a:hover {
+  color: #e18e00;
+}
+
