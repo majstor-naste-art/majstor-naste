@@ -1,273 +1,123 @@
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+/* CONFIG */
+const TOTAL_IMAGES = 30;
+const IMAGE_SRC = i => `sliki/${i}.jpg`;
 
-/* HERO SLIDER */
-let slideIndex = 0;
-const slides = document.querySelectorAll(".slide");
-function showSlide(i){ slides.forEach((s,idx)=>s.classList.toggle("active", idx===i)); }
-function nextSlide(){ slideIndex=(slideIndex+1)%slides.length; showSlide(slideIndex); }
-function prevSlide(){ slideIndex=(slideIndex-1+slides.length)%slides.length; showSlide(slideIndex); }
-document.querySelector(".slider-btn.next").addEventListener("click", nextSlide);
-document.querySelector(".slider-btn.prev").addEventListener("click", prevSlide);
-setInterval(nextSlide, 5000);
-
-/* GALLERY */
-const gallery = document.getElementById("gallery-grid");
-for(let i=1;i<=15;i++){
-  const img=document.createElement("img");
-  img.src=`sliki/${i}.jpg`;
-  img.alt=`Проект ${i}`;
-  img.addEventListener("click",()=>openLB(i));
-  gallery.appendChild(img);
-}
-
-/* LIGHTBOX */
-const lightbox=document.getElementById("lightbox");
-const lbImg=document.getElementById("lb-img");
-const lbPrev=document.querySelector(".lb-prev");
-const lbNext=document.querySelector(".lb-next");
-const lbClose=document.querySelector(".lb-close");
-let current=0;
-
-function openLB(i){ current=i; lbImg.src=`sliki/${i}.jpg`; lightbox.style.display="flex"; }
-function closeLB(){ lightbox.style.display="none"; }
-function prevLB(){ current=current>1?current-1:15; lbImg.src=`sliki/${current}.jpg`; }
-function nextLB(){ current=current<15?current+1:1; lbImg.src=`sliki/${current}.jpg`; }
-
-lbPrev.onclick=prevLB; lbNext.onclick=nextLB; lbClose.onclick=closeLB;
-lightbox.addEventListener("click", e=>{ if(e.target===lightbox) closeLB(); });
-
-// MOBILE MENU
+/* DOM */
+const yearEl = document.getElementById('year');
+const galleryGrid = document.getElementById('gallery-grid');
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const lbClose = document.querySelector('.lb-close');
+const lbPrev = document.querySelector('.lb-prev');
+const lbNext = document.querySelector('.lb-next');
+const langBtns = document.querySelectorAll('.lang-btn');
+const contactForm = document.getElementById('contact-form');
+const statusEl = document.getElementById('contact-status');
+const shareBtn = document.getElementById('shareBtn');
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
-const closeBtn = mobileMenu.querySelector('.close-btn');
+const closeBtn = document.querySelector('.close-btn');
 
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.add('open');
-  document.body.style.overflow = 'hidden';
-});
-closeBtn.addEventListener('click', () => {
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
-});
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
-
-/* SHARE */
-const shareBtn=document.getElementById("shareBtn");
-if(shareBtn && navigator.share){
-  shareBtn.onclick=()=>navigator.share({
-    title:"Мајстор Насте",
-    text:"Фасади, камен, мазилка — професионално изведување.",
-    url:window.location.href
-  });
-} else if(shareBtn){
-  shareBtn.onclick=()=>{ navigator.clipboard.writeText(window.location.href); alert("🔗 Линкот е копиран!"); };
-}
-
-/* LANG SWITCH */
-const TEXT={
-  mk:{heroTitle:"Фасади & Камен — професионално изведување",heroSub:"Фасади, облицовки, камини и мазилки."},
-  bg:{heroTitle:"Фасади и Камък — професионално изпълнение",heroSub:"Фасади, облицовки, камини и мазилки."},
-  en:{heroTitle:"Facades & Stone — professional execution",heroSub:"Facades, stone, fireplaces & plaster."}
+/* TRANSLATIONS */
+const TEXT = {
+  mk: { brand:'Мајстор Насте', slogan:'Фасади, камен и мазилка', nav:['Почетна','Услуги','Галерија','Контакт'], heroTitle:'Фасади & Камен — професионално изведување', heroSub:'Специјализација: фасади, облицовки, камини и мазилки.', ctaQuote:'Барај проценка', galleryTitle:'Галерија', servicesTitle:'Нашите услуги', s1:['Фасади и Изолации','Топла изолација, декоративни мазилки и завршни фасадни работи.'], s2:['Облицовки с гнајс','Облицовки со природен камен за фасади и декори.'], s3:['Камини и огради','Камини, огради и декоративни каменни елементи.'], contactTitle:'Контакт', phoneLabel:'Телефон:', emailLabel:'Е-пошта:', nameLabel:'Име / Телефон', msgLabel:'Порака', sendBtn:'Испрати', sending:'Се праќа...', sentOK:'Благодарам — испратено!'},
+  bg: { brand:'Майстор Насте', slogan:'Фасади, камък и мазилка', nav:['Начало','Услуги','Галерия','Контакт'], heroTitle:'Фасади & Камен - професионално изпълнение', heroSub:'Специализация: фасади, облицовки, камини и мазилки.', ctaQuote:'Вземете оферта', galleryTitle:'Галерия', servicesTitle:'Нашите услуги', s1:['Фасади и изолации','Топлоизолации, декоративни мазилки и довършителни работи.'], s2:['Камен и гнайс','Облицовки с естествен камък за фасади и декорации.'], s3:['Камини и огради','Изработка на камини и каменни огради.'], contactTitle:'Контакт', phoneLabel:'Телефон:', emailLabel:'E-поща:', nameLabel:'Име / Телефон', msgLabel:'Съобщение', sendBtn:'Изпрати', sending:'Изпращане...', sentOK:'Благодарим — заявката е изпратена!'},
+  en: { brand:'Majstor Naste', slogan:'Facades, stone & plaster', nav:['Home','Services','Gallery','Contact'], heroTitle:'Facades & Stone — professional execution', heroSub:'We specialize in facades, stone cladding, fireplaces and plaster.', ctaQuote:'Get a Quote', galleryTitle:'Gallery', servicesTitle:'Our Services', s1:['Facades & Insulation','Thermal insulation, decorative plaster and finishes.'], s2:['Stone Cladding','Natural stone cladding for facades and accents.'], s3:['Fireplaces & Fences','Fireplace design and stone fences.'], contactTitle:'Contact', phoneLabel:'Phone:', emailLabel:'Email:', nameLabel:'Name / Phone', msgLabel:'Message', sendBtn:'Send', sending:'Sending...', sentOK:'Thanks — message sent!'}
 };
-document.querySelectorAll(".lang-btn").forEach(btn=>{
-  btn.onclick=()=>{
-    document.querySelectorAll(".lang-btn").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    const lang=btn.dataset.lang;
-    document.getElementById("hero-title").textContent=TEXT[lang].heroTitle;
-    document.getElementById("hero-sub").textContent=TEXT[lang].heroSub;
-  };
+
+/* INIT */
+yearEl.textContent = new Date().getFullYear();
+let currentLang='mk';
+let images=[];
+
+/* Build Gallery */
+for(let i=1;i<=TOTAL_IMAGES;i++){
+  const img=document.createElement('img');
+  img.src=IMAGE_SRC(i);
+  img.alt=`Проект ${i}`;
+  img.loading='lazy';
+  img.dataset.index=i-1;
+  img.onerror=()=>{img.src='https://placehold.co/800x600?text=Majstor+Naste';};
+  galleryGrid.appendChild(img);
+  images.push(IMAGE_SRC(i));
+}
+
+/* Gallery Lightbox */
+let lbIndex=0;
+function openLB(i){lbIndex=i; lbImg.src=images[lbIndex]; lightbox.style.display='flex';}
+function closeLB(){lightbox.style.display='none';}
+function prevLB(){lbIndex=(lbIndex-1+images.length)%images.length; lbImg.src=images[lbIndex];}
+function nextLB(){lbIndex=(lbIndex+1)%images.length; lbImg.src=images[lbIndex];}
+galleryGrid.addEventListener('click',e=>{if(e.target.tagName==='IMG') openLB(parseInt(e.target.dataset.index,10));});
+lbClose.addEventListener('click',closeLB);
+lbPrev.addEventListener('click',prevLB);
+lbNext.addEventListener('click',nextLB);
+lightbox.addEventListener('click',e=>{if(e.target===lightbox) closeLB();});
+document.addEventListener('keydown',e=>{if(lightbox.style.display==='flex'){if(e.key==='Escape')closeLB(); if(e.key==='ArrowLeft')prevLB(); if(e.key==='ArrowRight')nextLB();}});
+
+/* HERO SLIDER */
+let currentSlide=0;
+const slides=document.querySelectorAll('.hero .slide');
+const prevBtn=document.querySelector('.slider-btn.prev');
+const nextBtn=document.querySelector('.slider-btn.next');
+function showSlide(index){slides.forEach((s,i)=>s.classList.toggle('active',i===index));}
+function nextSlide(){currentSlide=(currentSlide+1)%slides.length; showSlide(currentSlide);}
+function prevSlide(){currentSlide=(currentSlide-1+slides.length)%slides.length; showSlide(currentSlide);}
+if(nextBtn&&prevBtn){nextBtn.addEventListener('click',nextSlide); prevBtn.addEventListener('click',prevSlide);}
+setInterval(nextSlide,5000);
+
+/* Language Switch */
+function applyLang(lang){
+  currentLang=lang;
+  const t=TEXT[lang];
+  document.getElementById('brand-name').textContent=t.brand;
+  document.getElementById('brand-slogan').textContent=t.slogan;
+  document.getElementById('hero-title').textContent=t.heroTitle;
+  document.getElementById('hero-sub').textContent=t.heroSub;
+  document.getElementById('cta-quote').textContent=t.ctaQuote;
+  document.getElementById('gallery-title').textContent=t.galleryTitle;
+  document.getElementById('services-title').textContent=t.servicesTitle;
+  document.getElementById('s1-title').textContent=t.s1[0];
+  document.getElementById('s1-desc').textContent=t.s1[1];
+  document.getElementById('s2-title').textContent=t.s2[0];
+  document.getElementById('s2-desc').textContent=t.s2[1];
+  document.getElementById('s3-title').textContent=t.s3[0];
+  document.getElementById('s3-desc').textContent=t.s3[1];
+  document.getElementById('contact-title').textContent=t.contactTitle;
+  document.getElementById('contact-phone-label').textContent=t.phoneLabel;
+  document.getElementById('contact-email-label').textContent=t.emailLabel;
+  document.getElementById('lbl-name').textContent=t.nameLabel;
+  document.getElementById('lbl-msg').textContent=t.msgLabel;
+  document.getElementById('send-btn').textContent=t.sendBtn;
+  document.querySelectorAll('.main-nav a').forEach((a,i)=>a.textContent=t.nav[i]);
+}
+langBtns.forEach(b=>{b.addEventListener('click',()=>{langBtns.forEach(x=>x.classList.remove('active'));b.classList.add('active');applyLang(b.dataset.lang);});});
+applyLang(currentLang);
+
+/* Contact Form */
+contactForm.addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=this.name.value.trim();
+  const email=this.email.value.trim();
+  const message=this.message.value.trim();
+  if(!name||!email||!message){statusEl.textContent=TEXT[currentLang].sending; return;}
+  const subject=encodeURIComponent(`${TEXT[currentLang].brand} - Contact`);
+  const body=encodeURIComponent(`Name/Phone: ${name}\nEmail: ${email}\n\n${message}`);
+  window.location.href=`mailto:info@majstornaste.example?subject=${subject}&body=${body}`;
+  statusEl.textContent=TEXT[currentLang].sentOK;
+  setTimeout(()=>statusEl.textContent='',5000);
 });
-/* HEADER */
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  color: #fff;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
 
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.6rem 1rem;
-  flex-wrap: wrap;
-}
+/* Share Button */
+if(shareBtn && navigator.share){
+  shareBtn.addEventListener('click',async()=>{
+    try{await navigator.share({title:"Мајстор Насте — Фасади & Камен", text:"Погледни го нашиот сајт за фасади, камен и мазилка!", url:window.location.href});}
+    catch(err){console.error("Share cancelled or not supported",err);}
+  });
+}else if(shareBtn){shareBtn.addEventListener("click",()=>{navigator.clipboard.writeText(window.location.href); alert("🔗 Линкот е копиран!");});}
 
-/* BRAND */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo.flash {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: gold;
-  animation: flash 2s infinite alternate;
-}
-@keyframes flash { from {opacity: 0.7;} to {opacity: 1;} }
-
-.brand-text {
-  line-height: 1.2;
-  font-weight: 500;
-}
-#brand-name { font-size: 1.1rem; }
-#brand-slogan { font-size: 0.85rem; opacity: 0.8; }
-
-/* MAIN NAVIGATION */
-.main-nav {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.main-nav a {
-  display: inline-block;
-  padding: 0.45rem 0.9rem;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
-  background: rgba(255,255,255,0.05);
-  font-weight: 500;
-  transition: 0.25s;
-}
-.main-nav a:hover {
-  border-color: gold;
-  background: rgba(255,215,0,0.15);
-  transform: scale(1.05);
-}
-.main-nav a.active {
-  border-color: gold;
-  box-shadow: 0 0 6px rgba(255,215,0,0.4);
-}
-
-/* TOOLS */
-.tools {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-.lang-switch {
-  display: flex;
-  gap: 0.3rem;
-}
-.lang-btn {
-  background: none;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: #fff;
-  border-radius: 6px;
-  padding: 0.2rem 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-.lang-btn:hover {
-  background: rgba(255,255,255,0.2);
-}
-.lang-btn.active {
-  background: gold;
-  color: #000;
-  border-color: gold;
-}
-
-/* SOCIAL ICONS */
-.social {
-  display: flex;
-  gap: 0.4rem;
-}
-.social-link {
-  width: 26px;
-  height: 26px;
-  display: inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: transform 0.2s ease;
-}
-.social-link:hover { transform: scale(1.1); }
-.social-link.facebook { background-image: url('icons/facebook.svg'); }
-.social-link.instagram { background-image: url('icons/instagram.svg'); }
-.social-link.telegram { background-image: url('icons/telegram.svg'); }
-
-/* SHARE BUTTON */
-.btn-share {
-  background: gold;
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.25s;
-}
-.btn-share:hover {
-  transform: scale(1.05);
-  background: #ffdf00;
-}
-
-/* MOBILE MENU */
-.hamburger {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.mobile-menu {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 9999;
-  padding-top: 5rem;
-  text-align: center;
-}
-.mobile-menu.open { display: block; }
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-.mobile-nav a {
-  display: block;
-  margin: 1rem auto;
-  padding: 0.7rem 1.5rem;
-  color: #fff;
-  text-decoration: none;
-  border: 2px solid rgba(255,255,255,0.3);
-  border-radius: 8px;
-  width: 70%;
-  background: rgba(255,255,255,0.05);
-  transition: 0.3s;
-}
-.mobile-nav a:hover {
-  border-color: gold;
-  background: rgba(255,215,0,0.15);
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .main-nav { display: none; }
-  .hamburger { display: block; }
-}
+/* Mobile Menu */
+hamburger.addEventListener('click',()=>{mobileMenu.classList.add('active');});
+closeBtn.addEventListener('click',()=>{mobileMenu.classList.remove('active');});
+mobileMenu.addEventListener('click',(e)=>{if(e.target===mobileMenu) mobileMenu.classList.remove('active');});
+document.querySelectorAll('.mobile-nav a').forEach(link=>{link.addEventListener('click',()=>{mobileMenu.classList.remove('active');});});
