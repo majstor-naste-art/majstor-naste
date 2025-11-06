@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="mk">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Мајстор Насте — Фасади & Камен</title>
   <meta name="description" content="Фасади, гнајс, камини, камен и мазилка.">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark">
+<body>
 
 <header class="nav">
   <div class="container nav-inner">
@@ -19,11 +19,11 @@
       </div>
     </div>
 
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#hero" class="nav-link">Почетна</a>
-      <a href="#services" class="nav-link">Услуги</a>
-      <a href="#gallery" class="nav-link">Галерија</a>
-      <a href="#contact" class="nav-link">Контакт</a>
+    <nav class="main-nav">
+      <a href="#hero">Почетна</a>
+      <a href="#services">Услуги</a>
+      <a href="#gallery">Галерија</a>
+      <a href="#contact">Контакт</a>
     </nav>
 
     <button class="hamburger" aria-label="Мену">☰</button>
@@ -46,14 +46,12 @@
       </div>
 
       <div class="social">
-        <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook" aria-label="Facebook"></a>
-        <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram" aria-label="Instagram"></a>
-        <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram" aria-label="Telegram"></a>
+        <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook" aria-label="Facebook">f</a>
+        <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram" aria-label="Instagram">i</a>
+        <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram" aria-label="Telegram">t</a>
       </div>
 
-      <button id="shareBtn" class="btn-share" title="Сподели">🔗 Сподели</button>
-
-      <button id="toggleTheme" class="btn-theme" title="Dark/Light Mode">🌗</button>
+      <button id="shareBtn" class="btn-share">🔗 Сподели</button>
     </div>
   </div>
 </header>
@@ -101,7 +99,9 @@
 
   <section id="gallery" class="gallery-section">
     <h2 id="gallery-title">Галерија</h2>
-    <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
+    <div class="gallery-grid" id="gallery-grid" aria-live="polite">
+      <!-- JS inject -->
+    </div>
   </section>
 
   <section id="contact" class="contact-section">
@@ -112,7 +112,7 @@
         <p><strong id="contact-email-label">Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
         <a class="btn ghost" href="https://wa.me/359881234567" target="_blank">WhatsApp</a>
       </div>
-      <form id="contact-form" class="contact-form card-dark" aria-label="Contact form">
+      <form id="contact-form" class="contact-form card-dark">
         <label><span id="lbl-name">Име / Телефон</span><input name="name" required></label>
         <label><span id="lbl-email">Е-пошта</span><input name="email" type="email" required></label>
         <label><span id="lbl-msg">Съобщение</span><textarea name="message" rows="5" required></textarea></label>
@@ -120,7 +120,7 @@
           <button type="reset" class="btn ghost">Изчисти</button>
           <button type="submit" class="btn primary" id="send-btn">Испрати</button>
         </div>
-        <div id="contact-status" class="muted" role="status" aria-live="polite"></div>
+        <div id="contact-status" class="muted"></div>
       </form>
     </div>
   </section>
@@ -129,15 +129,16 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div>© <span id="year"></span> <span id="footer-name">Мајстор Насте</span></div>
-    <div class="footer-links"><a href="#contact" id="footer-contact-link">Контакт</a></div>
+    <div class="footer-links"><a href="#contact">Контакт</a></div>
   </div>
 </footer>
 
-<div id="lightbox" class="lightbox" aria-hidden="true">
-  <button class="lb-close" aria-label="Close">✕</button>
-  <button class="lb-prev" aria-label="Previous">‹</button>
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <button class="lb-close">✕</button>
+  <button class="lb-prev">‹</button>
   <img id="lb-img" alt="">
-  <button class="lb-next" aria-label="Next">›</button>
+  <button class="lb-next">›</button>
 </div>
 
 <script src="script.js"></script>
