@@ -24,8 +24,19 @@ body { background:#111; color:#fff; line-height:1.5; }
 
 /* LANG & SOCIAL */
 .tools { display:flex; align-items:center; gap:10px; }
-.lang-btn { background:none; border:none; font-size:20px; cursor:pointer; }
-.lang-btn.active { transform:scale(1.1); }
+.lang-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.7;            /* почетна непрозрачност */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* плавен прелез */
+}
+
+.lang-btn.active {
+  transform: scale(1.1);
+  opacity: 1;              /* целосна непрозрачност за активното */
+}
 .social { display:flex; gap:10px; }
 .social-link { width:24px; height:24px; display:inline-block; background-size:cover; }
 .social-link.facebook { background-image:url('https://cdn-icons-png.flaticon.com/512/733/733547.png'); }
