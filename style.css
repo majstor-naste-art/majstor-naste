@@ -78,3 +78,134 @@ header .tools{display:flex;align-items:center;gap:10px;}
 
 /* MEDIA */
 @media(max-width:768px){.hamburger{display:block;}header .main-nav{display:none;}}
+
+
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:var(--primary);
+}
+
+.logo.flash{
+  animation:flash 1s infinite alternate;
+}
+
+@keyframes flash{
+  from{color:var(--primary);}
+  to{color:#fff;}
+}
+
+.brand-text div{
+  line-height:1.2;
+}
+
+.main-nav a{
+  margin:0 10px;
+  color:#fff;
+  font-weight:500;
+}
+
+.tools{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.lang-switch button{
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:20px;
+}
+
+.lang-btn.active{
+  transform:scale(1.2);
+}
+
+.social{
+  display:flex;
+  gap:8px;
+}
+
+.social-link{
+  font-size:20px;
+  color:#fff;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* цветови за секој social */
+.social-link.facebook{color:#3b5998;}
+.social-link.instagram{color:#E1306C;}
+.social-link.telegram{color:#0088cc;}
+
+.btn-share{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:5px 10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+/* Hamburger */
+.hamburger{
+  display:none;
+  background:none;
+  border:none;
+  font-size:26px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* Mobile menu */
+.mobile-menu{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#222;
+  z-index:200;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.mobile-menu.active{
+  display:flex;
+}
+
+.mobile-nav a{
+  color:#fff;
+  font-size:24px;
+  margin:15px 0;
+}
+
+.close-btn{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:26px;
+  background:none;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* MEDIA */
+@media(max-width:768px){
+  .main-nav{display:none;}
+  .hamburger{display:block;}
+}
