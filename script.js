@@ -166,3 +166,26 @@ contactForm.addEventListener('submit', function(e){
   statusEl.textContent = TEXT[currentLang].sentOK;
   setTimeout(()=> statusEl.textContent = '', 5000);
 });
+
+const shareBtn = document.getElementById("shareBtn");
+
+if (shareBtn && navigator.share) {
+  shareBtn.addEventListener("click", async () => {
+    try {
+      await navigator.share({
+        title: "Мајстор Насте — Фасади & Камен",
+        text: "Погледни го нашиот сајт за фасади, камен и мазилка!",
+        url: window.location.href
+      });
+    } catch (err) {
+      console.error("Share cancelled or not supported", err);
+    }
+  });
+} else if (shareBtn) {
+  // Fallback if browser doesn't support Web Share API
+  shareBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert("🔗 Линкот е копиран!");
+  });
+}
+
