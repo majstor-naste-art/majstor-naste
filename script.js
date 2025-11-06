@@ -37,12 +37,26 @@ function nextLB(){ current=current<15?current+1:1; lbImg.src=`sliki/${current}.j
 lbPrev.onclick=prevLB; lbNext.onclick=nextLB; lbClose.onclick=closeLB;
 lightbox.addEventListener("click", e=>{ if(e.target===lightbox) closeLB(); });
 
-/* MOBILE MENU */
-const hamburger=document.querySelector(".hamburger");
-const mobileMenu=document.getElementById("mobileMenu");
-const closeBtn=mobileMenu.querySelector(".close-btn");
-hamburger.onclick=()=>mobileMenu.classList.add("open");
-closeBtn.onclick=()=>mobileMenu.classList.remove("open");
+// MOBILE MENU
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeBtn = mobileMenu.querySelector('.close-btn');
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+closeBtn.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
 
 /* SHARE */
 const shareBtn=document.getElementById("shareBtn");
