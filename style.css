@@ -123,21 +123,50 @@ body{
 .social {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-left: 14px;
+  gap: 18px;
+  margin-left: 16px;
 }
 
 .social-link img {
-  width: 28px;        /* поголем изглед */
-  height: 28px;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s;
+  width: 34px;
+  height: 34px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
 }
 
 .social-link:hover img {
   transform: scale(1.15);
-  filter: brightness(1) invert(0);
-  opacity: 1;
 }
 
+/* Specific brand colors */
+.social-link.facebook img {
+  filter: none;
+  fill: #1877F2;
+}
+
+.social-link.instagram img {
+  filter: none;
+  fill: #E4405F;
+}
+
+.social-link.telegram img {
+  filter: none;
+  fill: #0088CC;
+}
+
+/* Optional color fallback if SVGs don't inherit fill */
+.social-link.facebook img {
+  background-color: #1877F2;
+  border-radius: 50%;
+  padding: 5px;
+}
+.social-link.instagram img {
+  background-color: #E4405F;
+  border-radius: 50%;
+  padding: 5px;
+}
+.social-link.telegram img {
+  background-color: #0088CC;
+  border-radius: 50%;
+  padding: 5px;
+}
