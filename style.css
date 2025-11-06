@@ -123,19 +123,21 @@ body{
 .social {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-left: 10px;
+  gap: 14px;
+  margin-left: 14px;
 }
 
 .social-link img {
-  width: 20px;
-  height: 20px;
+  width: 28px;        /* поголем изглед */
+  height: 28px;
   filter: brightness(0) invert(1);
-  transition: transform 0.2s ease, filter 0.2s ease;
+  opacity: 0.9;
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s;
 }
 
 .social-link:hover img {
-  transform: scale(1.1);
+  transform: scale(1.15);
   filter: brightness(1) invert(0);
+  opacity: 1;
 }
 
