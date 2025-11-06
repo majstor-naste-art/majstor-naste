@@ -360,3 +360,64 @@ body{
   .slide-text p { font-size: 1rem; }
 }
 
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 75%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(10px);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.mobile-menu.active { right: 0; }
+
+.close-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mobile-nav a {
+  color: #fff;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mobile-nav a:hover {
+  color: #ffd700;
+}
+
+/* SHOW hamburger only on small screens */
+@media (max-width: 768px) {
+  .main-nav { display: none; }
+  .hamburger { display: block; }
+}
