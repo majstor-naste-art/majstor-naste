@@ -68,7 +68,8 @@ header.nav {
 
 .lang-btn {
   font-size: 22px;
-  background: transparent;
+  background: linear-gradient(90deg, #fafafa, #eaeaea);
+color: #111;
   border: none;
   cursor: pointer;
   transition: transform 0.3s, filter 0.3s;
@@ -267,7 +268,8 @@ header.nav {
 }
 .lang-btn {
   font-size: 24px;
-  background: none;
+  background: linear-gradient(90deg, #fafafa, #eaeaea);
+color: #111;
   border: none;
   cursor: pointer;
   transition: transform 0.3s, filter 0.3s;
