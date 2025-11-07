@@ -366,7 +366,7 @@ input,textarea { width:100%; padding:10px; border:none; border-radius:6px; backg
   line-height: 38px;
   text-align: center;
   border: 2px solid transparent;
-  border-radius: 50%;
+  border-circle: 50%;
   background: rgba(255,255,255,0.2);
   color: #fff;
   transition: all 0.3s ease;
