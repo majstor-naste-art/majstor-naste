@@ -116,6 +116,7 @@ color: #111;
   border: none;
   padding: 6px 12px;
   border-radius: 8px;
+  border: 2px solid red;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -295,6 +296,7 @@ header.nav {
   width: 28px;
   height: 28px;
   background-size: contain;
+  border: 2px solid red;
   background-repeat: no-repeat;
   background-position: center;
   transition: transform 0.3s, filter 0.3s;
@@ -314,6 +316,7 @@ header.nav {
   border: none;
   padding: 6px 12px;
   border-radius: 8px;
+  border: 2px solid red;
   cursor: pointer;
   font-weight: 600;
   transition: background 0.3s, transform 0.2s;
