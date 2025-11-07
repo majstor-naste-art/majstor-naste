@@ -162,3 +162,58 @@ function changeLanguage(lang) {
   document.getElementById('hero-title').textContent = texts[lang].hero;
   document.getElementById('services-title').textContent = texts[lang].services;
 }
+
+
+// === HERO SLIDER ===
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.slider-btn.prev');
+const nextBtn = document.querySelector('.slider-btn.next');
+let slideInterval;
+
+// функција за менување на слајд
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    slide.style.opacity = 0;
+    if (i === index) {
+      slide.classList.add('active');
+      slide.style.opacity = 1;
+    }
+  });
+  currentSlide = index;
+}
+
+// следен / претходен
+function nextSlide() {
+  showSlide((currentSlide + 1) % slides.length);
+}
+function prevSlideFunc() {
+  showSlide((currentSlide - 1 + slides.length) % slides.length);
+}
+
+// Автоматска ротација на 5 секунди
+function startSlider() {
+  slideInterval = setInterval(nextSlide, 5000);
+}
+
+// Паузирање при hover
+const slider = document.querySelector('.slider');
+slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+slider.addEventListener('mouseleave', startSlider);
+
+// Копчиња
+nextBtn.addEventListener('click', () => {
+  clearInterval(slideInterval);
+  nextSlide();
+  startSlider();
+});
+prevBtn.addEventListener('click', () => {
+  clearInterval(slideInterval);
+  prevSlideFunc();
+  startSlider();
+});
+
+// Старт
+showSlide(currentSlide);
+startSlider();
