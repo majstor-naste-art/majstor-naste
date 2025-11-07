@@ -92,26 +92,35 @@ shareBtn.onclick = async () => {
   } catch {}
 };
 
-/* LANGUAGE SWITCH */
-let currentLang = "mk";
-function applyLang(lang) {
-  currentLang = lang;
-  const t = TEXT[lang];
-  document.getElementById("brand-name").textContent = t.brand;
-  document.getElementById("brand-slogan").textContent = t.slogan;
-  document.getElementById("hero-title").textContent = t.heroTitle;
-  document.getElementById("hero-sub").textContent = t.heroSub;
-  document.getElementById("cta-quote").textContent = t.ctaQuote;
-  document.getElementById("gallery-title").textContent = t.galleryTitle;
-  document.querySelectorAll(".main-nav a").forEach((a, i) => {
-    a.textContent = t.nav[i];
-  });
-}
-langBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    langBtns.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    applyLang(btn.dataset.lang);
+// LANGUAGE SWITCHER
+const langButtons = document.querySelectorAll('.lang-btn');
+langButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    langButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const lang = btn.dataset.lang;
+    document.documentElement.lang = lang;
+    changeLanguage(lang);
   });
 });
-applyLang(currentLang);
+
+// пример за едноставен превод
+function changeLanguage(lang) {
+  const texts = {
+    mk: {
+      hero: 'Фасади & Камен — професионално изведување',
+      services: 'Нашите услуги'
+    },
+    bg: {
+      hero: 'Фасади и Камък — професионално изпълнение',
+      services: 'Нашите услуги'
+    },
+    en: {
+      hero: 'Facades & Stone — Professional Work',
+      services: 'Our Services'
+    }
+  };
+
+  document.getElementById('hero-title').textContent = texts[lang].hero;
+  document.getElementById('services-title').textContent = texts[lang].services;
+}
