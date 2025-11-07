@@ -124,3 +124,81 @@ function changeLanguage(lang) {
   document.getElementById('hero-title').textContent = texts[lang].hero;
   document.getElementById('services-title').textContent = texts[lang].services;
 }
+
+
+// === HERO SLIDER ===
+const slides = document.querySelectorAll('.slide');
+let index = 0;
+function showSlide(i) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[i].classList.add('active');
+}
+document.querySelector('.next').onclick = () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+};
+document.querySelector('.prev').onclick = () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+};
+setInterval(() => { index = (index + 1) % slides.length; showSlide(index); }, 5000);
+
+// === MOBILE MENU ===
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+document.querySelector('.close-btn').onclick = () => mobileMenu.classList.remove('active');
+hamburger.onclick = () => mobileMenu.classList.add('active');
+
+// === SHARE ===
+document.getElementById('shareBtn').onclick = async () => {
+  if (navigator.share) {
+    await navigator.share({ title: document.title, url: window.location.href });
+  } else {
+    alert('Споделувањето не е поддржано во овој прелистувач.');
+  }
+};
+
+// === GALLERY ===
+const gallery = document.getElementById('gallery-grid');
+for (let i = 1; i <= 12; i++) {
+  const img = document.createElement('img');
+  img.src = `sliki/${i}.jpg`;
+  img.loading = 'lazy';
+  img.alt = `Слика ${i}`;
+  gallery.appendChild(img);
+}
+
+// === LIGHTBOX ===
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+let currentIndex = 0;
+gallery.addEventListener('click', e => {
+  if (e.target.tagName === 'IMG') {
+    lightbox.style.display = 'flex';
+    lbImg.src = e.target.src;
+    currentIndex = [...gallery.children].indexOf(e.target);
+  }
+});
+document.querySelector('.lb-close').onclick = () => lightbox.style.display = 'none';
+document.querySelector('.lb-prev').onclick = () => {
+  currentIndex = (currentIndex - 1 + gallery.children.length) % gallery.children.length;
+  lbImg.src = gallery.children[currentIndex].src;
+};
+document.querySelector('.lb-next').onclick = () => {
+  currentIndex = (currentIndex + 1) % gallery.children.length;
+  lbImg.src = gallery.children[currentIndex].src;
+};
+
+// === LANG SWITCH ===
+const langBtns = document.querySelectorAll('.lang-btn');
+langBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    langBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.documentElement.lang = btn.dataset.lang;
+  });
+});
+
+// === FOOTER YEAR ===
+document.getElementById('year').textContent = new Date().getFullYear();
+
