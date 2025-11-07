@@ -71,6 +71,7 @@ header.nav {
   background:#D6C318;
 color: #111;
   border-radius: 8px;
+  border: 2px solid red;
   cursor: pointer;
   transition: transform 0.3s, filter 0.3s;
 }
@@ -271,6 +272,7 @@ header.nav {
  background: #D6C318;
  color: #111;
   border-radius: 8px;
+  border: 2px solid red;
   cursor: pointer;
   transition: transform 0.3s, filter 0.3s;
 }
