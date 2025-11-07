@@ -269,4 +269,53 @@ body.light .lang-btn {
 @keyframes fadeHero {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
+
+}
+.logo.flash {
+  font-weight: 700;
+  font-size: 28px;
+  color: gold;
+  text-shadow: 0 0 10px gold;
+  transition: all 0.5s;
+}
+.logo.flash.active {
+  color: #fff;
+  text-shadow: 0 0 20px orange;
+}
+
+/* Social icons со боја */
+.social-link {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  margin-left: 8px;
+  background-size: cover;
+  filter: drop-shadow(0 0 2px #000);
+}
+.social-link.facebook { background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg'); filter: invert(26%) sepia(98%) saturate(2811%) hue-rotate(210deg) brightness(96%) contrast(95%); }
+.social-link.instagram { background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg'); filter: invert(36%) sepia(88%) saturate(1497%) hue-rotate(320deg) brightness(96%) contrast(98%); }
+.social-link.telegram { background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg'); filter: invert(49%) sepia(92%) saturate(1465%) hue-rotate(180deg) brightness(96%) contrast(91%); }
+
+/* LANG BUTTONS */
+.lang-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0.8;
+}
+.lang-btn:hover { transform: scale(1.15); opacity: 1; }
+.lang-btn.active { transform: scale(1.2); opacity: 1; }
+
+/* GALLERY IMAGES fade-in */
+.gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  animation: fadein 0.8s ease both;
+}
+@keyframes fadein {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
