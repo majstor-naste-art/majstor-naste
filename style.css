@@ -29,7 +29,15 @@ header.nav { position:fixed; top:0; left:0; width:100%; background:#000d; backdr
 .lang-switch button { background:none; border:none; font-size:22px; cursor:pointer; transition:transform 0.2s; }
 .lang-switch .active { transform:scale(1.2); }
 
-social-link:hover { transform: scale(1.2); }
+/* SOCIAL ICONS */
+.social-link {
+  width: 24px; height: 24px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+}
+.social-link:hover { transform: scale(1.2); }
 .facebook { background-image: url('icons/facebook-color.svg'); }
 .instagram { background-image: url('icons/instagram-color.svg'); }
 .telegram { background-image: url('icons/telegram-color.svg'); }
@@ -46,7 +54,6 @@ social-link:hover { transform: scale(1.2); }
   transition: background 0.3s;
 }
 .btn-share:hover { background: #ffd84d; }
-
 
 .hamburger { display:none; font-size:26px; background:none; border:none; color:#fff; cursor:pointer; }
 
