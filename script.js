@@ -130,3 +130,35 @@ const observer = new IntersectionObserver(entries=>{
 },{threshold:0.2});
 document.querySelectorAll('section').forEach(sec=>observer.observe(sec));
 
+// LANGUAGE SWITCHER
+const langButtons = document.querySelectorAll('.lang-btn');
+langButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    langButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const lang = btn.dataset.lang;
+    document.documentElement.lang = lang;
+    changeLanguage(lang);
+  });
+});
+
+// пример за едноставен превод
+function changeLanguage(lang) {
+  const texts = {
+    mk: {
+      hero: 'Фасади & Камен — професионално изведување',
+      services: 'Нашите услуги'
+    },
+    bg: {
+      hero: 'Фасади и Камък — професионално изпълнение',
+      services: 'Нашите услуги'
+    },
+    en: {
+      hero: 'Facades & Stone — Professional Work',
+      services: 'Our Services'
+    }
+  };
+
+  document.getElementById('hero-title').textContent = texts[lang].hero;
+  document.getElementById('services-title').textContent = texts[lang].services;
+}
