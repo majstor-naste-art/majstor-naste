@@ -167,3 +167,75 @@ function navigate(dir) {
   currentIndex = (currentIndex + dir + imgs.length) % imgs.length;
   lbImg.src = imgs[currentIndex].src;
 }
+
+// HERO SLIDER
+let slides = document.querySelectorAll('.slide');
+let current = 0;
+function showSlide(i) {
+  slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+}
+document.querySelector('.next').addEventListener('click', () => {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+});
+document.querySelector('.prev').addEventListener('click', () => {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+});
+setInterval(() => {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}, 4000);
+
+// MOBILE MENU
+const menu = document.getElementById('mobileMenu');
+document.querySelector('.hamburger').onclick = () => menu.classList.add('active');
+document.querySelector('.close-btn').onclick = () => menu.classList.remove('active');
+
+// SHARE BUTTON
+const shareBtn = document.getElementById('shareBtn');
+shareBtn.addEventListener('click', async () => {
+  if (navigator.share) {
+    await navigator.share({
+      title: 'Мајстор Насте',
+      text: 'Фасади, камен, мазилка — професионално изведување.',
+      url: window.location.href
+    });
+  } else {
+    alert('Споделувањето не е поддржано на овој уред.');
+  }
+});
+
+// GALLERY AUTO GENERATION
+const gallery = document.getElementById('gallery-grid');
+for (let i = 1; i <= 30; i++) {
+  const img = document.createElement('img');
+  img.src = `sliki/${i}.jpg`;
+  img.loading = "lazy";
+  img.onerror = () => img.remove();
+  gallery.appendChild(img);
+}
+
+// LIGHTBOX
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+let currentIndex = 0;
+document.addEventListener('click', e => {
+  if (e.target.closest('#gallery-grid img')) {
+    const imgs = [...gallery.querySelectorAll('img')];
+    currentIndex = imgs.indexOf(e.target);
+    lbImg.src = e.target.src;
+    lightbox.classList.add('active');
+  }
+  if (e.target.classList.contains('lb-close')) lightbox.classList.remove('active');
+  if (e.target.classList.contains('lb-next')) navigate(1);
+  if (e.target.classList.contains('lb-prev')) navigate(-1);
+});
+function navigate(dir) {
+  const imgs = [...gallery.querySelectorAll('img')];
+  currentIndex = (currentIndex + dir + imgs.length) % imgs.length;
+  lbImg.src = imgs[currentIndex].src;
+}
+
+// YEAR AUTO
+document.getElementById('year').textContent = new Date().getFullYear();
