@@ -123,3 +123,47 @@ function prevSlideFunc() {
 nextBtn.addEventListener("click", nextSlide);
 prevBtn.addEventListener("click", prevSlideFunc);
 setInterval(nextSlide, 5000);
+
+
+// ========== GALLERY AUTO-GENERATION ==========
+const gallery = document.getElementById('gallery-grid');
+if (gallery) {
+  for (let i = 1; i <= 30; i++) {
+    const img = document.createElement('img');
+    img.src = `sliki/${i}.jpg`;
+    img.alt = `Слика ${i}`;
+    img.loading = "lazy";
+    img.onerror = () => img.remove(); // ако нема слика, ја брише
+    gallery.appendChild(img);
+  }
+}
+
+// ========== LIGHTBOX ==========
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const closeBtn = document.querySelector('.lb-close');
+const nextBtn = document.querySelector('.lb-next');
+const prevBtn = document.querySelector('.lb-prev');
+let currentIndex = 0;
+
+document.addEventListener('click', e => {
+  if (e.target.closest('#gallery-grid img')) {
+    const imgs = [...document.querySelectorAll('#gallery-grid img')];
+    currentIndex = imgs.indexOf(e.target);
+    showLightbox(imgs[currentIndex].src);
+  }
+  if (e.target === closeBtn) lightbox.style.display = 'none';
+  if (e.target === nextBtn) navigate(1);
+  if (e.target === prevBtn) navigate(-1);
+});
+
+function showLightbox(src) {
+  lightbox.style.display = 'flex';
+  lbImg.src = src;
+}
+
+function navigate(dir) {
+  const imgs = [...document.querySelectorAll('#gallery-grid img')];
+  currentIndex = (currentIndex + dir + imgs.length) % imgs.length;
+  lbImg.src = imgs[currentIndex].src;
+}
