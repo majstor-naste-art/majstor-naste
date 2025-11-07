@@ -73,8 +73,7 @@ img { max-width: 100%; display: block; }
 }
 
 .tools { display:flex; align-items:center; gap:15px; }
-.lang-switch button { background:none; border:none; font-size:22px; cursor:pointer; transition:transform 0.2s; }
-.lang-switch .active { transform:scale(1.2); }
+
 /* LANG SWITCH */
 .lang-btn {
   background: none;
