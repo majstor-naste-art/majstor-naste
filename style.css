@@ -65,18 +65,7 @@ img { max-width: 100%; display: block; }
 
 .tools { display:flex; align-items:center; gap:15px; }
 
-/* LANG SWITCH */
-.lang-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.lang-btn.active {
-  transform: scale(1.3);
-  opacity: 1;
-}
+
 
 /* SOCIAL ICONS */
 .social-link {
@@ -287,17 +276,6 @@ input,textarea { width:100%; padding:10px; border:none; border-radius:6px; backg
 .social-link.instagram { background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg'); filter: invert(36%) sepia(88%) saturate(1497%) hue-rotate(320deg) brightness(96%) contrast(98%); }
 .social-link.telegram { background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg'); filter: invert(49%) sepia(92%) saturate(1465%) hue-rotate(180deg) brightness(96%) contrast(91%); }
 
-/* LANG BUTTONS */
-.lang-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  transition: transform 0.3s, opacity 0.3s;
-  opacity: 0.8;
-}
-.lang-btn:hover { transform: scale(1.15); opacity: 1; }
-.lang-btn.active { transform: scale(1.2); opacity: 1; }
 
 /* GALLERY IMAGES fade-in */
 .gallery-grid img {
@@ -328,47 +306,52 @@ input,textarea { width:100%; padding:10px; border:none; border-radius:6px; backg
 }
 
 
-/* LANG SWITCH */
+/* 🌍 Language Switcher */
 .lang-switch {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
-  animation: fadeIn 1.5s ease-in forwards;
+  justify-content: center;
+  animation: fadeInLang 1.2s ease-in-out forwards;
 }
 
+/* копчиња со кружна рамка и позадина */
 .lang-btn {
-  background: none;
-  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
   border-radius: 50%;
-  font-size: 22px;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  opacity: 0.8;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
 }
 
+/* hover ефект */
 .lang-btn:hover {
-  transform: scale(1.2);
-  opacity: 1;
+  transform: scale(1.15);
+  border-color: #ffd000;
+  background: rgba(255, 208, 0, 0.25);
+  box-shadow: 0 0 10px #ffd00080;
 }
 
+/* активен јазик */
 .lang-btn.active {
-  border-color: #ffb400;
-  box-shadow: 0 0 10px #ffb40088;
-  opacity: 1;
-  transform: scale(1.25);
+  border-color: #ffd000;
+  background: rgba(255, 208, 0, 0.3);
+  box-shadow: 0 0 15px #ffd000b3;
+  transform: scale(1.2);
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* fade-in анимација */
+@keyframes fadeInLang {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 .nav-inner {
