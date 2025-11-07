@@ -198,3 +198,145 @@ header.nav {
   .hero { height:70vh; min-height:420px; }
 }
 
+/* HEADER */
+header.nav {
+  background: linear-gradient(90deg, #111 0%, #222 100%);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+}
+
+/* Лого */
+.logo.flash {
+  background: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.6rem;
+  border-radius: 8px;
+  padding: 5px 10px;
+  animation: flashLogo 1.5s infinite alternate;
+}
+@keyframes flashLogo {
+  from { box-shadow: 0 0 5px #ffcc00; }
+  to { box-shadow: 0 0 20px #ff6600; }
+}
+
+/* Навигација */
+.main-nav {
+  display: flex;
+  gap: 18px;
+}
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-link:hover {
+  color: #ffcc00;
+}
+
+/* Tools */
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Јазици */
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.lang-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, filter 0.3s;
+}
+.lang-btn:hover {
+  transform: scale(1.25);
+  filter: brightness(1.2);
+}
+.lang-btn.active {
+  transform: scale(1.35);
+  text-shadow: 0 0 10px #fff;
+}
+
+/* Социјални икони */
+.social {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.social-link {
+  width: 28px;
+  height: 28px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s, filter 0.3s;
+}
+.social-link:hover {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}
+.social-link.facebook { background-image: url('icons/facebook.svg'); }
+.social-link.instagram { background-image: url('icons/instagram.svg'); }
+.social-link.telegram { background-image: url('icons/telegram.svg'); }
+
+/* Сподели копче */
+.btn-share {
+  background: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-share:hover {
+  background: #ffaa00;
+  transform: scale(1.05);
+}
+
+/* Хамбургер (мобилен мени) */
+.hamburger {
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+
