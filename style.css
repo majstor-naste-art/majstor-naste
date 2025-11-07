@@ -92,16 +92,46 @@ header.nav {
   text-shadow: 0 0 10px #fff;
 }
 
-/* Social */
-.social { display:flex; gap:8px; align-items:center; margin-left:6px; }
-.social-link { width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; border-radius:6px; transition: transform .18s, box-shadow .18s; }
-.social-link svg { width:18px; height:18px; display:block; }
-.social-link:hover { transform:scale(1.1); box-shadow: 0 6px 16px rgba(0,0,0,0.5); }
+/* Социјални икони */
+.social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.social-link {
+  width: 26px;
+  height: 26px;
+  background-size: cover;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.6));
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-link:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.9));
+}
+
+/* Иконите */
+.social-link.facebook { background-image: url('icons/facebook.svg'); }
+.social-link.instagram { background-image: url('icons/instagram.svg'); }
+.social-link.telegram { background-image: url('icons/telegram.svg'); }
+
+.btn-share {
+  background: #ffcc00;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-share:hover {
+  background: #ffaa00;
+}
 
 /* Share & hamburger */
-.btn-share {
-  background:#ffd000; color:#111; border:none; padding:8px 10px; border-radius:8px; cursor:pointer; font-weight:700;
-}
+
 .hamburger { display:none; background:none; border:none; color:inherit; font-size:20px; cursor:pointer; }
 
 /* mobile menu */
