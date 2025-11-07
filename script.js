@@ -61,11 +61,26 @@ shareBtn.onclick = async () => {
   } catch {}
 };
 
-// LANGUAGE SWITCH (demo)
-document.querySelectorAll(".lang-btn").forEach(btn => {
+/* LANGUAGE SWITCH */
+let currentLang = "mk";
+function applyLang(lang) {
+  currentLang = lang;
+  const t = TEXT[lang];
+  document.getElementById("brand-name").textContent = t.brand;
+  document.getElementById("brand-slogan").textContent = t.slogan;
+  document.getElementById("hero-title").textContent = t.heroTitle;
+  document.getElementById("hero-sub").textContent = t.heroSub;
+  document.getElementById("cta-quote").textContent = t.ctaQuote;
+  document.getElementById("gallery-title").textContent = t.galleryTitle;
+  document.querySelectorAll(".main-nav a").forEach((a, i) => {
+    a.textContent = t.nav[i];
+  });
+}
+langBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll(".lang-btn").forEach(b => b.classList.remove("active"));
+    langBtns.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    alert("Промена на јазик: " + btn.dataset.lang);
+    applyLang(btn.dataset.lang);
   });
 });
+applyLang(currentLang);
