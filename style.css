@@ -1,17 +1,4 @@
-/* DOM */
-const yearEl = document.getElementById('year');
-const galleryGrid = document.getElementById('gallery-grid');
-const lightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lb-img');
-const lbClose = document.querySelector('.lb-close');
-const lbPrev = document.querySelector('.lb-prev');
-const lbNext = document.querySelector('.lb-next');
-const langBtns = document.querySelectorAll('.lang-btn');
-const contactForm = document.getElementById('contact-form');
-const statusEl = document.getElementById('contact-status');
-const hamburger = document.querySelector('.hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeBtn = document.querySelector('.close-btn');}
+
 /* ============ GLOBAL ============ */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -48,18 +35,8 @@ img { max-width: 100%; display: block; }
   padding: 10px 0;
 }
 /* LOGO FLASH */
-.logo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffcc00;
-  text-shadow: 0 0 8px #ffcc00;
-  animation: flash 2s infinite alternate;
-}
-@keyframes flash {
-  from { opacity: 1; text-shadow: 0 0 8px #ffcc00; }
-  to { opacity: 0.5; text-shadow: 0 0 20px #ffaa00; }
-}
-
+.logo {font-weight:bold; font-size:28px; color:#f39c12; animation: flash 1s infinite alternate;}
+@keyframes flash {0%{opacity:1;}50%{opacity:0.5;}100%{opacity:1;}}
 .brand-text { margin-left: 10px; }
 #brand-name { font-weight: 700; }
 #brand-slogan { font-size: 0.85rem; color: #aaa; }
