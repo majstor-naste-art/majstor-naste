@@ -311,3 +311,20 @@ input,textarea { width:100%; padding:10px; border:none; border-radius:6px; backg
   to { opacity: 1; transform: scale(1); }
 }
 
+/* SERVICES ICONS */
+.service-icon {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 32px;
+  color: #ffb400;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card:hover .service-icon {
+  transform: scale(1.2) rotate(-5deg);
+  opacity: 1;
+}
+
+
