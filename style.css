@@ -68,7 +68,7 @@ header.nav {
 
 .lang-btn {
   font-size: 22px;
-  background: linear-gradient(90deg, #fafafa, #eaeaea);
+  background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(214, 195, 24, 1) 100%);
 color: #111;
   border: none;
   cursor: pointer;
@@ -268,7 +268,7 @@ header.nav {
 }
 .lang-btn {
   font-size: 24px;
-  background: linear-gradient(90deg, #fafafa, #eaeaea);
+ background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(214, 195, 24, 1) 100%);
 color: #111;
   border: none;
   cursor: pointer;
