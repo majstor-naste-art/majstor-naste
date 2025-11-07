@@ -6,12 +6,12 @@
   <title>Мајстор Насте — Фасади & Камен</title>
   <meta name="description" content="Фасади, гнајс, камини, камен и мазилка.">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="sliki/logo.png">
 </head>
 <body>
   <!-- HEADER -->
   <header class="nav">
     <div class="container nav-inner">
-      <!-- Brand -->
       <div class="brand">
         <div class="logo flash">MN</div>
         <div class="brand-text">
@@ -20,15 +20,13 @@
         </div>
       </div>
 
-      <!-- Main Navigation -->
-      <nav class="main-nav" aria-label="Главна навигација">
+      <nav class="main-nav">
         <a href="#hero" class="nav-link">Почетна</a>
         <a href="#services" class="nav-link">Услуги</a>
         <a href="#gallery" class="nav-link">Галерија</a>
         <a href="#contact" class="nav-link">Контакт</a>
       </nav>
 
-      <!-- Tools -->
       <div class="tools">
         <div class="lang-switch">
           <button class="lang-btn active" data-lang="mk" title="Македонски">🇲🇰</button>
@@ -37,19 +35,18 @@
         </div>
 
         <div class="social">
-          <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook" aria-label="Facebook"></a>
-          <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram" aria-label="Instagram"></a>
-          <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram" aria-label="Telegram"></a>
+          <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook" aria-label="Facebook">📘</a>
+          <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram" aria-label="Instagram">📸</a>
+          <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram" aria-label="Telegram">✈️</a>
         </div>
 
-        <button id="shareBtn" class="btn-share" title="Сподели">🔗 Сподели</button>
+        <button id="shareBtn" class="btn-share" title="Сподели">🔗</button>
         <button class="hamburger" aria-label="Мену">☰</button>
       </div>
     </div>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-      <button class="close-btn" aria-label="Затвори">✕</button>
+      <button class="close-btn">✕</button>
       <nav class="mobile-nav">
         <a href="#hero">Почетна</a>
         <a href="#services">Услуги</a>
@@ -79,23 +76,23 @@
     <button class="slider-btn next">›</button>
   </section>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main class="container">
     <section id="services" class="services">
       <h2 id="services-title">Нашите услуги</h2>
       <div class="services-grid">
         <article class="card">
-          <img src="sliki/1.jpg" alt="">
+          <img src="sliki/1.jpg" alt="" loading="lazy">
           <h3 id="s1-title">Фасади и изолации</h3>
           <p id="s1-desc">Топла изолација, декоративни мазилки и завршни фасадни работи.</p>
         </article>
         <article class="card">
-          <img src="sliki/2.jpg" alt="">
+          <img src="sliki/2.jpg" alt="" loading="lazy">
           <h3 id="s2-title">Облицовки со гнајс</h3>
           <p id="s2-desc">Облицовки со природен камен — здравина и стил.</p>
         </article>
         <article class="card">
-          <img src="sliki/3.jpg" alt="">
+          <img src="sliki/3.jpg" alt="" loading="lazy">
           <h3 id="s3-title">Камини и огради</h3>
           <p id="s3-desc">Камини, огради и декоративни каменни елементи.</p>
         </article>
@@ -126,14 +123,12 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
       <div>© <span id="year"></span> <span id="footer-name">Мајстор Насте</span></div>
     </div>
   </footer>
 
-  <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
     <button class="lb-close">✕</button>
     <button class="lb-prev">‹</button>
