@@ -121,3 +121,12 @@ hamburger.addEventListener('click',()=>{ mobileMenu.classList.add('active'); doc
 closeBtn.addEventListener('click',()=>{ mobileMenu.classList.remove('active'); document.body.style.overflow=''; });
 mobileMenu.addEventListener('click',(e)=>{ if(e.target===mobileMenu){ mobileMenu.classList.remove('active'); document.body.style.overflow=''; } });
 document.querySelectorAll('.mobile-nav a').forEach(link=>link.addEventListener('click',()=>{ mobileMenu.classList.remove('active'); document.body.style.overflow=''; }));
+
+/* Fade-in on scroll */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.2});
+document.querySelectorAll('section').forEach(sec=>observer.observe(sec));
+
