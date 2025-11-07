@@ -8,50 +8,53 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <!-- HEADER -->
-  <header class="nav">
+  <header class="nav" role="banner">
     <div class="container nav-inner">
-      <!-- Brand -->
       <div class="brand">
-        <div class="logo flash">MN</div>
+        <div class="logo flash" aria-hidden="true">MN</div>
         <div class="brand-text">
-          <div class="brand-name">Мајстор Насте</div>
-          <div class="brand-slogan">Фасади, камен и мазилка</div>
+          <div id="brand-name" class="brand-name">Мајстор Насте</div>
+          <div id="brand-slogan" class="brand-slogan">Фасади, камен и мазилка</div>
         </div>
       </div>
 
-      <!-- Navigation -->
-      <nav class="main-nav">
-        <a href="#hero">Почетна</a>
-        <a href="#services">Услуги</a>
-        <a href="#gallery">Галерија</a>
-        <a href="#contact">Контакт</a>
+      <nav class="main-nav" aria-label="Главна навигација">
+        <a class="nav-link" href="#hero" data-i18="nav0">Почетна</a>
+        <a class="nav-link" href="#services" data-i18="nav1">Услуги</a>
+        <a class="nav-link" href="#gallery" data-i18="nav2">Галерија</a>
+        <a class="nav-link" href="#contact" data-i18="nav3">Контакт</a>
       </nav>
 
-      <!-- Tools -->
       <div class="tools">
-        <div class="lang-switch fade-in">
-          <button class="lang-btn active" data-lang="mk" title="Македонски">🇲🇰</button>
-          <button class="lang-btn" data-lang="bg" title="Български">🇧🇬</button>
-          <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+        <div class="lang-switch" role="tablist" aria-label="Language switch">
+          <button class="lang-btn active" data-lang="mk" aria-pressed="true" title="Македонски">🇲🇰</button>
+          <button class="lang-btn" data-lang="bg" aria-pressed="false" title="Български">🇧🇬</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false" title="English">🇬🇧</button>
         </div>
 
-        <div class="social">
-          <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook"></a>
-          <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram"></a>
-          <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram"></a>
+        <div class="social" aria-hidden="false">
+          <a class="social-link" href="https://facebook.com/majstornaste" target="_blank" rel="noopener" aria-label="Facebook">
+            <!-- simple svg facebook -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect rx="3" width="24" height="24" fill="#1877F2"/><path d="M15 8h-1.6c-0.4 0-0.9 0.3-0.9 0.8V10H15l-0.4 2H12.5v6H10v-6H8.5v-2H10V9.2C10 7.1 11.6 6 13.6 6H15v2z" fill="#fff"/></svg>
+          </a>
+          <a class="social-link" href="https://instagram.com/majstornaste" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect rx="5" width="24" height="24" fill="url(#g)"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#feda75"/><stop offset="0.5" stop-color="#fa7e1e"/><stop offset="1" stop-color="#d62976"/></linearGradient></defs><path d="M12 8.2a3.8 3.8 0 100 7.6 3.8 3.8 0 000-7.6zm6.2-.9a1 1 0 11-2 0 1 1 0 012 0z" fill="#fff" opacity="0.95"/></svg>
+          </a>
+          <a class="social-link" href="https://t.me/majstornaste" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect rx="3" width="24" height="24" fill="#24A1DE"/><path d="M5 12l13-6-4 11-3.5-2-2.5 2L11 10 5 12z" fill="#fff"/></svg>
+          </a>
         </div>
 
-        <button id="shareBtn" class="btn-share" title="Сподели">🔗</button>
-        <button class="hamburger" aria-label="Мену">☰</button>
+        <button id="shareBtn" class="btn-share" aria-label="Share">🔗</button>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <button class="close-btn" aria-label="Затвори">✕</button>
-      <nav class="mobile-nav">
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <button class="close-btn" aria-label="Close menu">✕</button>
+      <nav class="mobile-nav" aria-label="Mobile navigation">
         <a href="#hero">Почетна</a>
         <a href="#services">Услуги</a>
         <a href="#gallery">Галерија</a>
@@ -60,89 +63,90 @@
     </div>
   </header>
 
-  <!-- HERO SLIDER -->
-  <section id="hero" class="hero">
-    <div class="slider">
+  <!-- HERO -->
+  <section id="hero" class="hero" aria-label="Hero">
+    <div class="slider" aria-hidden="false">
       <div class="slide active" style="background-image:url('sliki/1.jpg')"></div>
       <div class="slide" style="background-image:url('sliki/2.jpg')"></div>
       <div class="slide" style="background-image:url('sliki/3.jpg')"></div>
     </div>
-    <div class="hero-overlay"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content container">
-      <h1 id="hero-title">Фасади & Камен — професионално изведување</h1>
-      <p id="hero-sub">Специјализација: фасади, облицовки, камини и мазилки.</p>
+      <h1 id="hero-title" data-i18="heroTitle">Фасади & Камен — професионално изведување</h1>
+      <p id="hero-sub" data-i18="heroSub">Специјализација: фасади, облицовки, камини и мазилки.</p>
       <div class="hero-ctas">
-        <a id="cta-quote" class="btn primary" href="#contact">Барај проценка</a>
-        <a id="cta-gallery" class="btn ghost" href="#gallery">Галерија</a>
+        <a id="cta-quote" class="btn primary" href="#contact" data-i18="ctaQuote">Барај проценка</a>
+        <a id="cta-gallery" class="btn ghost" href="#gallery" data-i18="ctaGallery">Галерија</a>
       </div>
     </div>
-    <button class="slider-btn prev">‹</button>
-    <button class="slider-btn next">›</button>
+    <button class="slider-btn prev" aria-label="Previous slide">‹</button>
+    <button class="slider-btn next" aria-label="Next slide">›</button>
   </section>
 
-  <!-- SERVICES -->
-  <main class="container">
-    <section id="services" class="services">
-      <h2 id="services-title">Нашите услуги</h2>
+  <!-- MAIN -->
+  <main>
+    <section id="services" class="services container">
+      <h2 data-i18="servicesTitle">Нашите услуги</h2>
       <div class="services-grid">
         <article class="card">
-          <img src="sliki/1.jpg" alt="">
-          <h3 id="s1-title">Фасади и изолации</h3>
-          <p id="s1-desc">Топла изолација, декоративни мазилки и завршни фасадни работи.</p>
+          <img src="sliki/1.jpg" alt="Фасади и изолации" loading="lazy" onerror="this.src='https://placehold.co/800x600?text=image'">
+          <h3 data-i18="s1Title">Фасади и изолации</h3>
+          <p data-i18="s1Desc">Топла изолација, декоративни мазилки и завршни фасадни работи.</p>
         </article>
+
         <article class="card">
-          <img src="sliki/2.jpg" alt="">
-          <h3 id="s2-title">Облицовки со гнајс</h3>
-          <p id="s2-desc">Облицовки со природен камен — здравина и стил.</p>
+          <img src="sliki/2.jpg" alt="Облицовки со гнајс" loading="lazy" onerror="this.src='https://placehold.co/800x600?text=image'">
+          <h3 data-i18="s2Title">Облицовки со гнајс</h3>
+          <p data-i18="s2Desc">Облицовки со природен камен — здравина и стил.</p>
         </article>
+
         <article class="card">
-          <img src="sliki/3.jpg" alt="">
-          <h3 id="s3-title">Камини и огради</h3>
-          <p id="s3-desc">Камини, огради и декоративни каменни елементи.</p>
+          <img src="sliki/3.jpg" alt="Камини и огради" loading="lazy" onerror="this.src='https://placehold.co/800x600?text=image'">
+          <h3 data-i18="s3Title">Камини и огради</h3>
+          <p data-i18="s3Desc">Камини, огради и декоративни каменни елементи.</p>
         </article>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section id="gallery" class="gallery-section">
-      <h2 id="gallery-title">Галерија</h2>
-      <div class="gallery-grid" id="gallery-grid"></div>
+    <section id="gallery" class="gallery-section container">
+      <h2 data-i18="galleryTitle">Галерија</h2>
+      <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
-      <h2 id="contact-title">Контакт</h2>
+    <section id="contact" class="contact-section container">
+      <h2 data-i18="contactTitle">Контакт</h2>
       <div class="contact-grid">
         <div class="contact-info card-dark">
-          <p><strong>Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
-          <p><strong>Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
-          <a class="btn ghost" href="https://wa.me/38970123456" target="_blank">WhatsApp</a>
+          <p><strong data-i18="phoneLabel">Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
+          <p><strong data-i18="emailLabel">Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
+          <p><a class="btn ghost" href="https://wa.me/38970123456" target="_blank">WhatsApp</a></p>
         </div>
 
-        <form id="contact-form" class="contact-form card-dark">
-          <label>Име / Телефон<input name="name" required></label>
-          <label>Е-пошта<input name="email" type="email" required></label>
-          <label>Порака<textarea name="message" rows="5" required></textarea></label>
-          <button type="submit" class="btn primary">Испрати</button>
-          <div id="contact-status" class="muted"></div>
+        <form id="contact-form" class="contact-form card-dark" aria-label="Contact form">
+          <label><span data-i18="lblName">Име / Телефон</span><input name="name" required></label>
+          <label><span data-i18="lblEmail">Е-пошта</span><input name="email" type="email" required></label>
+          <label><span data-i18="lblMsg">Порака</span><textarea name="message" rows="5" required></textarea></label>
+          <div style="margin-top:10px;">
+            <button type="submit" class="btn primary" id="send-btn" data-i18="sendBtn">Испрати</button>
+          </div>
+          <div id="contact-status" class="muted" role="status" aria-live="polite"></div>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© <span id="year"></span> Мајстор Насте</div>
+      <div>© <span id="year"></span> <span id="footer-name">Мајстор Насте</span></div>
     </div>
   </footer>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox">
-    <button class="lb-close">✕</button>
-    <button class="lb-prev">‹</button>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Close">✕</button>
+    <button class="lb-prev" aria-label="Previous">‹</button>
     <img id="lb-img" alt="">
-    <button class="lb-next">›</button>
+    <button class="lb-next" aria-label="Next">›</button>
   </div>
 
   <script src="script.js"></script>
