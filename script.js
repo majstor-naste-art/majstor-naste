@@ -6,6 +6,37 @@ const mobileMenu = document.getElementById("mobileMenu");
 document.querySelector(".hamburger").onclick = () => mobileMenu.classList.add("active");
 document.querySelector(".close-btn").onclick = () => mobileMenu.classList.remove("active");
 
+/* TRANSLATIONS */
+const TEXT = {
+  mk: {
+    brand: "Мајстор Насте",
+    slogan: "Фасади, камен и мазилка",
+    nav: ["Почетна", "Услуги", "Галерија", "Контакт"],
+    heroTitle: "Фасади & Камен — професионално изведување",
+    heroSub: "Специјализација: фасади, облицовки, камини и мазилки.",
+    ctaQuote: "Барај проценка",
+    galleryTitle: "Галерија"
+  },
+  bg: {
+    brand: "Майстор Насте",
+    slogan: "Фасади, камък и мазилка",
+    nav: ["Начало", "Услуги", "Галерия", "Контакт"],
+    heroTitle: "Фасади & Камък — професионално изпълнение",
+    heroSub: "Специализация: фасади, облицовки, камини и мазилки.",
+    ctaQuote: "Заяви оферта",
+    galleryTitle: "Галерия"
+  },
+  en: {
+    brand: "Majstor Naste",
+    slogan: "Facades, stone & plaster",
+    nav: ["Home", "Services", "Gallery", "Contact"],
+    heroTitle: "Facades & Stone — professional execution",
+    heroSub: "Specializing in facades, stone cladding & plaster.",
+    ctaQuote: "Get a quote",
+    galleryTitle: "Gallery"
+  }
+};
+
 // HERO SLIDER
 let slides = document.querySelectorAll(".slide");
 let current = 0;
