@@ -6,57 +6,61 @@
   <title>Мајстор Насте — Фасади & Камен</title>
   <meta name="description" content="Фасади, гнајс, камини, камен и мазилка.">
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/6c4b6b39bb.js" crossorigin="anonymous"></script>
-  <link rel="icon" type="image/png" href="sliki/logo.png">
 </head>
 <body>
+
   <!-- HEADER -->
-<header class="nav">
-  <div class="container nav-inner">
-    <!-- Logo -->
-    <div class="brand">
-      <div class="logo flash">MN</div>
-      <div class="brand-text">
-        <div class="brand-name">Мајстор Насте</div>
-        <div class="brand-slogan">Фасади, камен и мазилка</div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <!-- Brand -->
+      <div class="brand">
+        <div class="logo flash">MN</div>
+        <div class="brand-text">
+          <div class="brand-name">Мајстор Насте</div>
+          <div class="brand-slogan">Фасади, камен и мазилка</div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="main-nav">
+        <a href="#hero">Почетна</a>
+        <a href="#services">Услуги</a>
+        <a href="#gallery">Галерија</a>
+        <a href="#contact">Контакт</a>
+      </nav>
+
+      <!-- Tools -->
+      <div class="tools">
+        <div class="lang-switch fade-in">
+          <button class="lang-btn active" data-lang="mk" title="Македонски">🇲🇰</button>
+          <button class="lang-btn" data-lang="bg" title="Български">🇧🇬</button>
+          <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+        </div>
+
+        <div class="social">
+          <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook"></a>
+          <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram"></a>
+          <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram"></a>
+        </div>
+
+        <button id="shareBtn" class="btn-share" title="Сподели">🔗</button>
+        <button class="hamburger" aria-label="Мену">☰</button>
       </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="main-nav">
-      <a href="#hero">Почетна</a>
-      <a href="#services">Услуги</a>
-      <a href="#gallery">Галерија</a>
-      <a href="#contact">Контакт</a>
-    </nav>
-
-    <!-- Right tools -->
-    <div class="tools">
-      <!-- Language Switch -->
-      <div class="lang-switch fade-in">
-        <button class="lang-btn active" data-lang="mk" title="Македонски">🇲🇰</button>
-        <button class="lang-btn" data-lang="bg" title="Български">🇧🇬</button>
-        <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
-      </div>
-
-      <!-- Social -->
-      <div class="social">
-        <a href="https://facebook.com/majstornaste" target="_blank" class="social-link facebook" aria-label="Facebook"></a>
-        <a href="https://instagram.com/majstornaste" target="_blank" class="social-link instagram" aria-label="Instagram"></a>
-        <a href="https://t.me/majstornaste" target="_blank" class="social-link telegram" aria-label="Telegram"></a>
-      </div>
-
-      <!-- Share -->
-      <button id="shareBtn" class="btn-share" title="Сподели">🔗</button>
-
-      <!-- Mobile menu -->
-      <button class="hamburger" aria-label="Мену">☰</button>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="close-btn" aria-label="Затвори">✕</button>
+      <nav class="mobile-nav">
+        <a href="#hero">Почетна</a>
+        <a href="#services">Услуги</a>
+        <a href="#gallery">Галерија</a>
+        <a href="#contact">Контакт</a>
+      </nav>
     </div>
-  </div>
-</header>
+  </header>
 
-
-  <!-- HERO -->
+  <!-- HERO SLIDER -->
   <section id="hero" class="hero">
     <div class="slider">
       <div class="slide active" style="background-image:url('sliki/1.jpg')"></div>
@@ -76,67 +80,64 @@
     <button class="slider-btn next">›</button>
   </section>
 
-  <!-- MAIN -->
+  <!-- SERVICES -->
   <main class="container">
-  <section id="services" class="services">
-  <h2 id="services-title">Нашите услуги</h2>
-  <div class="services-grid">
+    <section id="services" class="services">
+      <h2 id="services-title">Нашите услуги</h2>
+      <div class="services-grid">
+        <article class="card">
+          <img src="sliki/1.jpg" alt="">
+          <h3 id="s1-title">Фасади и изолации</h3>
+          <p id="s1-desc">Топла изолација, декоративни мазилки и завршни фасадни работи.</p>
+        </article>
+        <article class="card">
+          <img src="sliki/2.jpg" alt="">
+          <h3 id="s2-title">Облицовки со гнајс</h3>
+          <p id="s2-desc">Облицовки со природен камен — здравина и стил.</p>
+        </article>
+        <article class="card">
+          <img src="sliki/3.jpg" alt="">
+          <h3 id="s3-title">Камини и огради</h3>
+          <p id="s3-desc">Камини, огради и декоративни каменни елементи.</p>
+        </article>
+      </div>
+    </section>
 
-    <article class="card">
-      <i class="fa-solid fa-brush service-icon"></i>
-      <img src="sliki/1.jpg" alt="Фасади и изолации" loading="lazy">
-      <h3 id="s1-title">Фасади и изолации</h3>
-      <p id="s1-desc">Топла изолација, декоративни мазилки и завршни фасадни работи.</p>
-    </article>
-
-    <article class="card">
-      <i class="fa-solid fa-mountain-sun service-icon"></i>
-      <img src="sliki/2.jpg" alt="Облицовки со гнајс" loading="lazy">
-      <h3 id="s2-title">Облицовки со гнајс</h3>
-      <p id="s2-desc">Облицовки со природен камен — здравина и стил.</p>
-    </article>
-
-    <article class="card">
-      <i class="fa-solid fa-fire-burner service-icon"></i>
-      <img src="sliki/3.jpg" alt="Камини и огради" loading="lazy">
-      <h3 id="s3-title">Камини и огради</h3>
-      <p id="s3-desc">Камини, огради и декоративни каменни елементи.</p>
-    </article>
-
-  </div>
-</section>
-
-
+    <!-- GALLERY -->
     <section id="gallery" class="gallery-section">
       <h2 id="gallery-title">Галерија</h2>
       <div class="gallery-grid" id="gallery-grid"></div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="contact-section">
       <h2 id="contact-title">Контакт</h2>
       <div class="contact-grid">
         <div class="contact-info card-dark">
-          <p><strong id="contact-phone-label">Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
-          <p><strong id="contact-email-label">Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
+          <p><strong>Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
+          <p><strong>Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
           <a class="btn ghost" href="https://wa.me/38970123456" target="_blank">WhatsApp</a>
         </div>
+
         <form id="contact-form" class="contact-form card-dark">
-          <label><span id="lbl-name">Име / Телефон</span><input name="name" required></label>
-          <label><span id="lbl-email">Е-пошта</span><input name="email" type="email" required></label>
-          <label><span id="lbl-msg">Порака</span><textarea name="message" rows="5" required></textarea></label>
-          <button type="submit" class="btn primary" id="send-btn">Испрати</button>
+          <label>Име / Телефон<input name="name" required></label>
+          <label>Е-пошта<input name="email" type="email" required></label>
+          <label>Порака<textarea name="message" rows="5" required></textarea></label>
+          <button type="submit" class="btn primary">Испрати</button>
           <div id="contact-status" class="muted"></div>
         </form>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div>© <span id="year"></span> <span id="footer-name">Мајстор Насте</span></div>
+      <div>© <span id="year"></span> Мајстор Насте</div>
     </div>
   </footer>
 
+  <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
     <button class="lb-close">✕</button>
     <button class="lb-prev">‹</button>
