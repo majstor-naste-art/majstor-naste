@@ -160,3 +160,59 @@ header.nav {
   .tools { gap: 0.3rem; }
   .brand-text { display: none; }
 }
+
+/* ---- LANGUAGE SWITCH ---- */
+.lang-switch {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.lang-btn {
+  border: 2px solid transparent;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 20px;
+  border-radius: 8px;
+  width: 40px;
+  height: 32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255,255,255,0.2);
+}
+
+.lang-btn.active {
+  border-color: #ffd700;
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 8px #ffd700;
+}
+
+/* DARK MODE FIX */
+body.dark .lang-btn {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+body.light .lang-btn {
+  background: rgba(0,0,0,0.1);
+  color: #000;
+}
+
+/* FADE-IN ANIMATION */
+.lang-btn {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+.lang-btn:nth-child(1){ animation-delay: 0.1s; }
+.lang-btn:nth-child(2){ animation-delay: 0.2s; }
+.lang-btn:nth-child(3){ animation-delay: 0.3s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
