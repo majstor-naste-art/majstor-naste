@@ -91,3 +91,21 @@ body.light .social a {filter:none;}
   .main-nav {display:none;}
   .hamburger {display:block;}
 }
+.nav {display:flex; align-items:center; justify-content:space-between; padding:10px 0; background:#222; color:#fff; position:sticky; top:0; z-index:1000;}
+.nav-inner {display:flex; align-items:center; justify-content:space-between; width:100%;}
+.brand {display:flex; align-items:center; gap:10px;}
+.logo {font-weight:bold; font-size:28px; color:#f39c12; animation: flash 1s infinite alternate;}
+@keyframes flash {0%{opacity:1;}50%{opacity:0.5;}100%{opacity:1;}}
+.brand-text div {line-height:1.2;}
+.main-nav {display:flex; gap:15px;}
+.main-nav a {color:#fff; font-weight:500; transition:0.3s;}
+.main-nav a:hover {color:#f39c12;}
+.tools {display:flex; align-items:center; gap:15px;}
+.lang-btn {background:none; border:none; font-size:20px; cursor:pointer; transition:0.2s;}
+.lang-btn.active {transform:scale(1.1);}
+.social {display:flex; gap:10px;}
+.social a {width:28px; height:28px; display:inline-block; background-size:cover;}
+.social a.facebook {background-image:url('icons/facebook-color.svg');}
+.social a.instagram {background-image:url('icons/instagram-color.svg');}
+.social a.telegram {background-image:url('icons/telegram-color.svg');}
+.btn-share {background:#f39c12; color:#111; border:none; padding:5px 12px; border-radius:5px; font-weight:bold;}
