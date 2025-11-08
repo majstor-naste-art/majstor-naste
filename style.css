@@ -37,7 +37,7 @@ header.nav {
 /* Brand */
 .brand { display:flex; gap:12px; align-items:center; }
 .logo.flash {
-  background: linear-gradient(90deg,#ffd000,#ff8a00);
+  background: linear-gradient(90deg,#ff6600,#ff8a00);
   color:#111;
   font-weight:800;
   padding:8px 12px;
@@ -53,7 +53,7 @@ header.nav {
 /* Main nav */
 .main-nav { display:flex; gap:18px; align-items:center; }
 .nav-link { color: #e9eef1; text-decoration:none; font-weight:500; padding:6px 8px; border-radius:6px; transition: color .18s, background .18s; }
-.nav-link:hover { color:#111; background:#240dd4; }
+.nav-link:hover { color:#111; background: #ff6600; }
 
 /* Tools */
 .tools { display:flex; align-items:center; gap:10px; }
@@ -68,7 +68,7 @@ header.nav {
 
 .lang-btn {
   font-size: 22px;
-  background:#D6C318;
+  background:#ff6600;
 color: #111;
   border-radius: 8px;
   border: 2px solid red;
@@ -114,7 +114,7 @@ color: #111;
 .social-link.telegram { background-image: url('icons/telegram.svg'); }
 
 .btn-share {
-  background: #ffcc00;
+  background: #ff6600;
   border: none;
   padding: 6px 12px;
   border-radius: 8px;
@@ -229,7 +229,7 @@ header.nav {
 
 /* Лого */
 .logo.flash {
-  background: #ffcc00;
+  background: #ff6600;
   color: #000;
   font-weight: bold;
   font-size: 1.6rem;
@@ -272,7 +272,7 @@ header.nav {
 }
 .lang-btn {
   font-size: 24px;
- background: #D6C318;
+ background:  #ff6600;
  color: #111;
   border-radius: 8px;
   border: 2px solid red;
@@ -324,7 +324,7 @@ header.nav {
   transition: background 0.3s, transform 0.2s;
 }
 .btn-share:hover {
-  background: #ffaa00;
+  background: #ff6600;
   transform: scale(1.05);
 }
 
