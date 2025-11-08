@@ -218,3 +218,20 @@ if (nextBtn && prevBtn) {
 
 // автоматска промена на 5 секунди
 setInterval(nextSlide, 5000);
+
+/* SHARE BUTTON */
+const shareBtn=document.getElementById('shareBtn');
+if(shareBtn && navigator.share){
+  shareBtn.addEventListener('click',async()=>{
+    await navigator.share({
+      title:'Мајстор Насте — Фасади & Камен',
+      text:'Погледни го нашиот сајт за фасади и камен!',
+      url:window.location.href
+    });
+  });
+}else if(shareBtn){
+  shareBtn.addEventListener('click',()=>{
+    navigator.clipboard.writeText(window.location.href);
+    alert('🔗 Линкот е копиран!');
+  });
+}
