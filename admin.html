@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - Majstor Naste</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="admin-container">
+  <h1>Admin Panel</h1>
+
+  <div id="login-section">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <p id="login-status"></p>
+  </div>
+
+  <div id="gallery-section" style="display:none;">
+    <h2>Gallery Management</h2>
+    <input type="file" id="fileInput">
+    <input type="text" id="imgTitle" placeholder="Title">
+    <button id="uploadBtn">Upload</button>
+    <div id="galleryList"></div>
+    <button id="logoutBtn">Logout</button>
+  </div>
+</div>
+
+<script type="module" src="admin.js"></script>
+<script type="module" src="firebase-config.js"></script>
+</body>
+</html>
