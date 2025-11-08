@@ -94,8 +94,8 @@ color: #111;
 }
 
 .social-link {
-  width: 30px;
-  height: 30px;
+  width: 48px;
+  height: 48px;
   border-radius: 8px;
   border: 2px solid red;
   background-size: cover;
@@ -295,8 +295,8 @@ header.nav {
   align-items: center;
 }
 .social-link {
-  width: 30px;
-  height: 30px;
+  width: 48px;
+  height: 48px;
   background-size: contain;
   border: 2px solid red;
   background-repeat: no-repeat;
@@ -313,7 +313,7 @@ header.nav {
 
 /* Сподели копче */
 .btn-share {
-  background: #ffcc00;
+  background: #ff6600;
   color: #000;
   border: none;
   padding: 6px 12px;
