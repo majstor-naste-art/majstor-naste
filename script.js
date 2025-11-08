@@ -1,5 +1,5 @@
 /* ====== CONFIG ====== */
-const TOTAL_GALLERY = 12; // change if you have more images in /sliki
+const TOTAL_GALLERY = 30; // change if you have more images in /sliki
 const IMAGE_PATH = i => `sliki/${i}.jpg`;
 
 /* ====== DOM ====== */
