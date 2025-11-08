@@ -3,134 +3,131 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Мајстор Насте — Фасади & Камен</title>
-  <meta name="description" content="Фасади, гнајс, камини, камен и мазилка.">
+  <title>Мајстор Насте — Фасади и каменни облицовки</title>
+  <meta name="description" content="Мајстор Насте — професионални фасади, облицовки, камини и декоративна мазилка.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- HEADER -->
   <header class="nav" role="banner">
     <div class="container nav-inner">
-      <div class="brand">
+      <div class="brand" role="group" aria-label="Brand">
         <div class="logo flash" aria-hidden="true">MN</div>
         <div class="brand-text">
-          <div id="brand-name" class="brand-name">Мајстор Насте</div>
-          <div id="brand-slogan" class="brand-slogan">Фасади, камен и мазилка</div>
+          <div id="brand-name">Мајстор Насте</div>
+          <div id="brand-slogan">Фасади и каменни облицовки</div>
         </div>
       </div>
 
-      <nav class="main-nav" aria-label="Главна навигација">
-        <a class="nav-link" href="#hero" data-i18="nav0">Почетна</a>
-        <a class="nav-link" href="#services" data-i18="nav1">Услуги</a>
-        <a class="nav-link" href="#gallery" data-i18="nav2">Галерија</a>
-        <a class="nav-link" href="#contact" data-i18="nav3">Контакт</a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#hero" class="nav-link">Почетна</a>
+        <a href="#services" class="nav-link">Услуги</a>
+        <a href="#gallery" class="nav-link">Галерија</a>
+        <a href="#contact" class="nav-link">Контакт</a>
       </nav>
 
-      <div class="tools">
-        <div class="lang-switch" role="tablist" aria-label="Language switch">
-          <button class="lang-btn active" data-lang="mk" aria-pressed="true" title="Македонски">🇲🇰</button>
+      <button class="hamburger" aria-label="Отвори мени">☰</button>
+
+      <div class="tools" role="group" aria-label="Site tools">
+        <div class="lang-switch" role="tablist" aria-label="Languages">
+          <button class="lang-btn" data-lang="mk" aria-pressed="false" title="Македонски">🇲🇰</button>
           <button class="lang-btn" data-lang="bg" aria-pressed="false" title="Български">🇧🇬</button>
           <button class="lang-btn" data-lang="en" aria-pressed="false" title="English">🇬🇧</button>
         </div>
 
         <div class="social" aria-hidden="false">
           <a class="social-link" href="https://facebook.com/majstornaste" target="_blank" rel="noopener" aria-label="Facebook">
-            <!-- simple svg facebook -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect rx="3" width="24" height="24" fill="#1877F2"/><path d="M15 8h-1.6c-0.4 0-0.9 0.3-0.9 0.8V10H15l-0.4 2H12.5v6H10v-6H8.5v-2H10V9.2C10 7.1 11.6 6 13.6 6H15v2z" fill="#fff"/></svg>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/></svg>
           </a>
           <a class="social-link" href="https://instagram.com/majstornaste" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect rx="5" width="24" height="24" fill="url(#g)"/><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#feda75"/><stop offset="0.5" stop-color="#fa7e1e"/><stop offset="1" stop-color="#d62976"/></linearGradient></defs><path d="M12 8.2a3.8 3.8 0 100 7.6 3.8 3.8 0 000-7.6zm6.2-.9a1 1 0 11-2 0 1 1 0 012 0z" fill="#fff" opacity="0.95"/></svg>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.8-.9a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
           </a>
           <a class="social-link" href="https://t.me/majstornaste" target="_blank" rel="noopener" aria-label="Telegram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect rx="3" width="24" height="24" fill="#24A1DE"/><path d="M5 12l13-6-4 11-3.5-2-2.5 2L11 10 5 12z" fill="#fff"/></svg>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9.9 16.2 9.6 20c.5 0 .7-.2.9-.5l2-1.9 4.1 3c.8.5 1.4.2 1.6-.8l2.9-13.4c.3-1.2-.4-1.7-1.2-1.4L2.8 9.8c-1.1.4-1.1 1-.2 1.3l4.4 1.4 10.2-6.4c.5-.3.9-.1.5.2l-8.6 7.9z"/></svg>
           </a>
         </div>
 
+        <button id="themeToggle" class="btn-toggle" aria-label="Toggle theme">🌙</button>
         <button id="shareBtn" class="btn-share" aria-label="Share">🔗</button>
-        <button class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-      <button class="close-btn" aria-label="Close menu">✕</button>
-      <nav class="mobile-nav" aria-label="Mobile navigation">
-        <a href="#hero">Почетна</a>
-        <a href="#services">Услуги</a>
-        <a href="#gallery">Галерија</a>
-        <a href="#contact">Контакт</a>
-      </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="hero" class="hero" aria-label="Hero">
-    <div class="slider" aria-hidden="false">
-      <div class="slide active" style="background-image:url('sliki/4.jpg')"></div>
-      <div class="slide" style="background-image:url('sliki/2.jpg')"></div>
-      <div class="slide" style="background-image:url('sliki/5.jpg')"></div>
-      <div class="slide active" style="background-image:url('sliki/7.jpg')"></div>
-      <div class="slide" style="background-image:url('sliki/8.jpg')"></div>
-      <div class="slide" style="background-image:url('sliki/9.jpg')"></div>
-    </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="close-btn" aria-label="Затвори мени">✕</button>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#hero">Почетна</a>
+      <a href="#services">Услуги</a>
+      <a href="#gallery">Галерија</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+  </div>
+
+  <!-- HERO SLIDER -->
+  <section id="hero" class="hero" role="region" aria-label="Hero">
+    <div class="slider" id="heroSlider" aria-live="polite"></div>
+    <div class="hero-overlay"></div>
+
     <div class="hero-content container">
-      <h1 id="hero-title" data-i18="heroTitle">Фасади & Камен — професионално изведување</h1>
-      <p id="hero-sub" data-i18="heroSub">Специјализација: фасади, облицовки, камини и мазилки.</p>
+      <h1 id="hero-title">Фасади & Камен — прецизно и трајно</h1>
+      <p id="hero-sub">Професионални фасади, облицовки од камен и декоративна мазилка.</p>
       <div class="hero-ctas">
-        <a id="cta-quote" class="btn primary" href="#contact" data-i18="ctaQuote">Барај проценка</a>
-        <a id="cta-gallery" class="btn ghost" href="#gallery" data-i18="ctaGallery">Галерија</a>
+        <a id="cta-quote" class="btn primary" href="#contact">Барај проценка</a>
+        <a id="cta-gallery" class="btn ghost" href="#gallery">Галерија</a>
       </div>
     </div>
+
     <button class="slider-btn prev" aria-label="Previous slide">‹</button>
     <button class="slider-btn next" aria-label="Next slide">›</button>
   </section>
 
-  <!-- MAIN -->
-  <main>
-    <section id="services" class="services container">
-      <h2 data-i18="servicesTitle">Нашите услуги</h2>
+  <!-- MAIN CONTENT -->
+  <main class="container" role="main">
+    <section id="services" class="services" aria-labelledby="services-title">
+      <h2 id="services-title">Нашите услуги</h2>
       <div class="services-grid">
         <article class="card">
-          <img src="sliki/5.jpg" alt="Фасади и изолации" loading="lazy" onerror="this.src='https://placehold.co/800x600?text=image'">
-          <h3 data-i18="s1Title">Фасади и изолации</h3>
-          <p data-i18="s1Desc">Топла изолација, декоративни мазилки и завршни фасадни работи.</p>
+          <img src="sliki/1.jpg" alt="Фасади">
+          <h3 id="s1-title">Фасади и изолации</h3>
+          <p id="s1-desc">Професионално поставување топлинска изолација и декоративни мазилки.</p>
         </article>
 
         <article class="card">
-          <img src="sliki/6.jpg" alt="Облицовки со гнајс" loading="lazy" onerror="this.src='https://placehold.co/800x600?text=image'">
-          <h3 data-i18="s2Title">Облицовки со гнајс</h3>
-          <p data-i18="s2Desc">Облицовки со природен камен — здравина и стил.</p>
+          <img src="sliki/2.jpg" alt="Каменни облицовки">
+          <h3 id="s2-title">Облицовки со природен камен</h3>
+          <p id="s2-desc">Облицовки и акценти со гнајс и други природни камења.</p>
         </article>
 
         <article class="card">
-          <img src="sliki/30.jpg" alt="Камини и огради" loading="lazy" onerror="this.src='https://placehold.co/800x600?text=image'">
-          <h3 data-i18="s3Title">Камини и огради</h3>
-          <p data-i18="s3Desc">Камини, огради и декоративни каменни елементи.</p>
+          <img src="sliki/3.jpg" alt="Камини и огради">
+          <h3 id="s3-title">Камини и декоративни елементи</h3>
+          <p id="s3-desc">Дизајн и изработка на камини, огради и декоративни камени решенија.</p>
         </article>
       </div>
     </section>
 
-    <section id="gallery" class="gallery-section container">
-      <h2 data-i18="galleryTitle">Галерија</h2>
+    <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Галерија</h2>
       <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
     </section>
 
-    <section id="contact" class="contact-section container">
-      <h2 data-i18="contactTitle">Контакт</h2>
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Контакт</h2>
       <div class="contact-grid">
         <div class="contact-info card-dark">
-          <p><strong data-i18="phoneLabel">Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
-          <p><strong data-i18="emailLabel">Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
-          <p><a class="btn ghost" href="https://wa.me/38970123456" target="_blank">WhatsApp</a></p>
+          <p><strong id="contact-phone-label">Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
+          <p><strong id="contact-email-label">Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
+          <a class="btn ghost" href="https://wa.me/38970123456" target="_blank" rel="noopener">WhatsApp</a>
         </div>
 
         <form id="contact-form" class="contact-form card-dark" aria-label="Contact form">
-          <label><span data-i18="lblName">Име / Телефон</span><input name="name" required></label>
-          <label><span data-i18="lblEmail">Е-пошта</span><input name="email" type="email" required></label>
-          <label><span data-i18="lblMsg">Порака</span><textarea name="message" rows="5" required></textarea></label>
-          <div style="margin-top:10px;">
-            <button type="submit" class="btn primary" id="send-btn" data-i18="sendBtn">Испрати</button>
+          <label><span id="lbl-name">Име / Телефон</span><input name="name" required></label>
+          <label><span id="lbl-email">Е-пошта</span><input name="email" type="email" required></label>
+          <label><span id="lbl-msg">Порака</span><textarea name="message" rows="5" required></textarea></label>
+          <div class="form-row">
+            <button type="reset" class="btn ghost">Изчисти</button>
+            <button type="submit" class="btn primary" id="send-btn">Испрати</button>
           </div>
           <div id="contact-status" class="muted" role="status" aria-live="polite"></div>
         </form>
@@ -138,7 +135,7 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container footer-inner">
       <div>© <span id="year"></span> <span id="footer-name">Мајстор Насте</span></div>
     </div>
@@ -153,11 +150,5 @@
   </div>
 
   <script src="script.js"></script>
-  <script src="https://chatbot-yoyh.onrender.com/static/widget.js"
-        data-bot="majstor-naste"
-        data-title="Majstor Naste.bot"
-        data-color="#ff6600"
-        async>
-</script>
 </body>
 </html>
