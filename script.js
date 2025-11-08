@@ -112,43 +112,60 @@ document.addEventListener('keydown', e=>{
   }
 });
 
-/* lang switch */
-function applyLang(lang){
+/* LANGUAGE SWITCH */
+function applyLang(lang) {
   currentLang = lang;
   const t = TEXT[lang];
-  document.getElementById('brand-name').textContent = t.brand;
-  document.getElementById('brand-slogan').textContent = t.slogan;
-  document.getElementById('hero-title').textContent = t.heroTitle;
-  document.getElementById('hero-sub').textContent = t.heroSub;
-  document.getElementById('cta-quote').textContent = t.ctaQuote;
-  document.getElementById('gallery-title').textContent = t.galleryTitle;
-  document.getElementById('services-title').textContent = t.servicesTitle;
-  document.getElementById('s1-title').textContent = t.s1[0];
-  document.getElementById('s1-desc').textContent = t.s1[1];
-  document.getElementById('s2-title').textContent = t.s2[0];
-  document.getElementById('s2-desc').textContent = t.s2[1];
-  document.getElementById('s3-title').textContent = t.s3[0];
-  document.getElementById('s3-desc').textContent = t.s3[1];
-  document.getElementById('contact-title').textContent = t.contactTitle;
-  document.getElementById('contact-phone-label').textContent = t.phoneLabel;
-  document.getElementById('contact-email-label').textContent = t.emailLabel;
-  document.getElementById('lbl-name').textContent = t.nameLabel;
-  document.getElementById('lbl-email').textContent = t.emailInput || t.emailLabel;
-  document.getElementById('lbl-msg').textContent = t.msgLabel;
-  document.getElementById('send-btn').textContent = t.sendBtn;
-  // nav
+
+  // Проверка дали сите елементи постојат пред да се менува
+  const setText = (id, text) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  };
+
+  setText('brand-name', t.brand);
+  setText('brand-slogan', t.slogan);
+  setText('hero-title', t.heroTitle);
+  setText('hero-sub', t.heroSub);
+  setText('cta-quote', t.ctaQuote);
+  setText('gallery-title', t.galleryTitle);
+  setText('services-title', t.servicesTitle);
+  setText('s1-title', t.s1[0]);
+  setText('s1-desc', t.s1[1]);
+  setText('s2-title', t.s2[0]);
+  setText('s2-desc', t.s2[1]);
+  setText('s3-title', t.s3[0]);
+  setText('s3-desc', t.s3[1]);
+  setText('contact-title', t.contactTitle);
+  setText('contact-phone-label', t.phoneLabel);
+  setText('contact-email-label', t.emailLabel);
+  setText('lbl-name', t.nameLabel);
+  setText('lbl-email', t.emailLabel);
+  setText('lbl-msg', t.msgLabel);
+  setText('send-btn', t.sendBtn);
+  setText('footer-name', t.brand);
+
+  // NAVIGATION
   const navs = document.querySelectorAll('.main-nav a');
-  navs.forEach((a, i)=> a.textContent = t.nav[i]);
-  document.getElementById('footer-name').textContent = t.brand;
+  navs.forEach((a, i) => {
+    if (t.nav[i]) a.textContent = t.nav[i];
+  });
 }
-langBtns.forEach(b=>{
-  b.addEventListener('click', ()=>{
-    langBtns.forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    applyLang(b.dataset.lang);
+
+// слушатели на јазици
+langBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    langBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyLang(btn.dataset.lang);
   });
 });
-applyLang(currentLang);
+
+// иницијално
+document.addEventListener('DOMContentLoaded', () => {
+  applyLang(currentLang);
+});
+
 
 /* contact form - mailto fallback */
 contactForm.addEventListener('submit', function(e){
