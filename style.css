@@ -336,29 +336,31 @@ header.nav {
     display: block;
   }
 
-  .marquee-container {
+  .marquee-sticky {
+  position: sticky;   /* останува фиксирано при скролување */
+  top: 0;
+  width: 100%;
   overflow: hidden;
-  white-space: nowrap;
-  background: #ff6600; /* или светол за light mode */
+  background-color: #222; /* темна боја за dark mode */
   color: #fff;
+  white-space: nowrap;
   padding: 0.5rem 0;
+  z-index: 1000;
   font-weight: bold;
 }
 
-.marquee-text {
+.marquee-sticky p {
   display: inline-block;
   padding-left: 100%;
-  animation: marquee 1s linear infinite;
+  animation: marquee 15s linear infinite;
+  margin: 0;
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
+
 
 }
 
