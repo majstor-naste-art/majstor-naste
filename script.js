@@ -1,19 +1,20 @@
 /* CONFIG */
-const TOTAL_IMAGES = 15;              // gallery images count (sliki/1..TOTAL_IMAGES.jpg)
-const SLIDER_COUNT = 5;              // how many images to use in hero slider (1..TOTAL_IMAGES)
+const TOTAL_IMAGES = 30;         // gallery images (sliki/1.jpg ... sliki/30.jpg)
+const SLIDER_COUNT = 5;         // how many images used in hero slider (from 1..TOTAL_IMAGES)
 const IMAGE_SRC = i => `sliki/${i}.jpg`;
 
-/* DOM */
+/* DOM ready */
 document.addEventListener('DOMContentLoaded', () => {
+  // basic elements
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // theme
-  const root = document.documentElement;
+  // theme default: dark
   const savedTheme = localStorage.getItem('mn_theme') || 'dark';
   setTheme(savedTheme);
 
-  // elements
+  // main elements
+  const heroSlider = document.getElementById('heroSlider');
   const galleryGrid = document.getElementById('gallery-grid');
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
@@ -29,140 +30,121 @@ document.addEventListener('DOMContentLoaded', () => {
   /* TRANSLATIONS */
   const TEXT = {
     mk: {
-      brand:'Мајстор Насте', slogan:'Фасади, камен и мазилка',
+      brand:'Мајстор Насте', slogan:'Фасади и каменни облицовки',
       nav:['Почетна','Услуги','Галерија','Контакт'],
-      heroTitle:'Фасади & Камен — професионално изведување',
-      heroSub:'Специјализација: фасади, облицовки, камини и мазилки.',
+      heroTitle:'Фасади & Камен — прецизно и трајно',
+      heroSub:'Професионални фасади, облицовки од камен и декоративна мазилка.',
       ctaQuote:'Барај проценка',
       galleryTitle:'Галерија',
       servicesTitle:'Нашите услуги',
-      s1:['Фасади и Изолации','Топла изолација, декоративни мазилки и завршни фасадни работи.'],
-      s2:['Облицовки с гнајс','Облицовки со природен камен за фасади и декори.'],
-      s3:['Камини и огради','Камини, огради и декоративни каменни елементи.'],
+      s1:['Фасади и Изолации','Професионално поставување топлинска изолација и декоративни мазилки.'],
+      s2:['Облицовки со камен','Облицовки и акценти со гнајс и други природни камења.'],
+      s3:['Камини и огради','Дизајн и изработка на камини и декоративни облици.'],
       contactTitle:'Контакт', phoneLabel:'Телефон:', emailLabel:'Е-пошта:', nameLabel:'Име / Телефон',
-      msgLabel:'Съобщение', sendBtn:'Испрати', sending:'Се праќа...', sentOK:'Благодарам — испратено!'
+      msgLabel:'Порака', sendBtn:'Испрати', sending:'Се праќа...', sentOK:'Благодарам — испратено!'
     },
     bg: {
-      brand:'Майстор Насте', slogan:'Фасади, камък и мазилка',
+      brand:'Майстор Насте', slogan:'Фасади и камък',
       nav:['Начало','Услуги','Галерия','Контакт'],
-      heroTitle:'Фасади & Камен - професионално изпълнение',
-      heroSub:'Специализация: фасади, облицовки, камини и мазилки.',
+      heroTitle:'Фасади & Камък - прецизно и трайно',
+      heroSub:'Професионални фасади, облицовки и декоративни мазилки.',
       ctaQuote:'Вземете оферта',
       galleryTitle:'Галерия',
       servicesTitle:'Нашите услуги',
-      s1:['Фасади и изолации','Топлоизолации, декоративни мазилки и довършителни работи.'],
-      s2:['Камен и гнайс','Облицовки с естествен камък за фасади и декорации.'],
-      s3:['Камини и огради','Изработка на камини и каменни огради.'],
+      s1:['Фасади и изолации','Професионално полагане на топлоизолация и декоративни мазилки.'],
+      s2:['Облицовки с камък','Облицовки с гнайс и други естествени камъни.'],
+      s3:['Камини и огради','Дизайн и изработка на камини и огради.'],
       contactTitle:'Контакт', phoneLabel:'Телефон:', emailLabel:'E-поща:', nameLabel:'Име / Телефон',
       msgLabel:'Съобщение', sendBtn:'Изпрати', sending:'Изпращане...', sentOK:'Благодарим — заявката е изпратена!'
     },
     en: {
-      brand:'Majstor Naste', slogan:'Facades, stone & plaster',
+      brand:'Majstor Naste', slogan:'Facades & Stone Cladding',
       nav:['Home','Services','Gallery','Contact'],
-      heroTitle:'Facades & Stone — professional execution',
-      heroSub:'We specialize in facades, stone cladding, fireplaces and plaster.',
+      heroTitle:'Facades & Stone — precise and lasting',
+      heroSub:'Professional facades, stone cladding and decorative plaster.',
       ctaQuote:'Get a Quote',
       galleryTitle:'Gallery',
       servicesTitle:'Our Services',
-      s1:['Facades & Insulation','Thermal insulation, decorative plaster and finishes.'],
-      s2:['Stone Cladding','Natural stone cladding for facades and accents.'],
-      s3:['Fireplaces & Fences','Fireplace design and stone fences.'],
+      s1:['Facades & Insulation','Professional installation of insulation and decorative finishes.'],
+      s2:['Stone Cladding','Cladding and accents in gneiss and natural stone.'],
+      s3:['Fireplaces & Fences','Design and construction of fireplaces and stone features.'],
       contactTitle:'Contact', phoneLabel:'Phone:', emailLabel:'Email:', nameLabel:'Name / Phone',
       msgLabel:'Message', sendBtn:'Send', sending:'Sending...', sentOK:'Thanks — message sent!'
     }
   };
 
-  /* build hero slider (use first SLIDER_COUNT images from sliki/) */
-  const slider = document.getElementById('heroSlider');
+  /* BUILD HERO SLIDER (SLIDER_COUNT first images) */
   const slides = [];
-  for(let i=1;i<=Math.min(SLIDER_COUNT,TOTAL_IMAGES);i++){
+  for (let i = 1; i <= Math.min(SLIDER_COUNT, TOTAL_IMAGES); i++) {
     const s = document.createElement('div');
     s.className = 'slide';
     s.style.backgroundImage = `url('${IMAGE_SRC(i)}')`;
     s.dataset.index = i;
-    s.addEventListener('error', ()=>{ s.style.backgroundImage = `url('https://placehold.co/1200x800?text=Majstor+Naste')`; });
-    slider.appendChild(s);
+    heroSlider.appendChild(s);
     slides.push(s);
   }
-  if(slides.length) slides[0].classList.add('active');
+  if (slides.length) slides[0].classList.add('active');
 
-  /* slider controls */
   let currentSlide = 0;
   const prevBtn = document.querySelector('.slider-btn.prev');
   const nextBtn = document.querySelector('.slider-btn.next');
-  function showSlide(index){
-    slides.forEach((sl,i)=> sl.classList.toggle('active', i===index));
-  }
-  function nextSlide(){ currentSlide = (currentSlide+1)%slides.length; showSlide(currentSlide); }
-  function prevSlide(){ currentSlide = (currentSlide-1+slides.length)%slides.length; showSlide(currentSlide); }
-  if(prevBtn && nextBtn){
-    prevBtn.addEventListener('click', ()=>{ prevSlide(); resetAuto(); });
-    nextBtn.addEventListener('click', ()=>{ nextSlide(); resetAuto(); });
+  function showSlide(index) { slides.forEach((sl, idx) => sl.classList.toggle('active', idx === index)); }
+  function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; showSlide(currentSlide); }
+  function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; showSlide(currentSlide); }
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => { prevSlide(); resetAuto(); });
+    nextBtn.addEventListener('click', () => { nextSlide(); resetAuto(); });
   }
   let autoTimer = setInterval(nextSlide, 5000);
-  function resetAuto(){ clearInterval(autoTimer); autoTimer = setInterval(nextSlide, 5000); }
+  function resetAuto() { clearInterval(autoTimer); autoTimer = setInterval(nextSlide, 5000); }
 
-  /* build gallery */
+  /* BUILD GALLERY */
   const images = [];
-  for(let i=1;i<=TOTAL_IMAGES;i++){
+  for (let i = 1; i <= TOTAL_IMAGES; i++) {
     const img = document.createElement('img');
     img.src = IMAGE_SRC(i);
     img.alt = `Проект ${i}`;
-    img.dataset.index = i-1;
-    img.onerror = ()=>{ img.src = 'https://placehold.co/800x600?text=Majstor+Naste'; };
+    img.dataset.index = i - 1;
+    img.onerror = () => { img.src = 'https://placehold.co/800x600?text=Majstor+Naste'; };
     galleryGrid.appendChild(img);
     images.push(IMAGE_SRC(i));
   }
-  // stagger fade-in
-  document.querySelectorAll('.gallery-grid img').forEach((el,idx)=> el.style.animationDelay = `${idx*40}ms`);
+  // small stagger
+  document.querySelectorAll('.gallery-grid img').forEach((el, idx) => el.style.animationDelay = `${idx * 30}ms`);
 
   /* LIGHTBOX */
   let lbIndex = 0;
-  function openLB(index){
-    lbIndex = index;
-    lbImg.src = images[lbIndex];
-    lightbox.style.display = 'flex';
-    lightbox.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLB(){
-    lightbox.style.display = 'none';
-    lightbox.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  }
-  function prevLB(){ lbIndex = (lbIndex-1+images.length)%images.length; lbImg.src = images[lbIndex]; }
-  function nextLB(){ lbIndex = (lbIndex+1)%images.length; lbImg.src = images[lbIndex]; }
+  function openLB(i) { lbIndex = i; lbImg.src = images[lbIndex]; lightbox.style.display = 'flex'; lightbox.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
+  function closeLB() { lightbox.style.display = 'none'; lightbox.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; }
+  function prevLB() { lbIndex = (lbIndex - 1 + images.length) % images.length; lbImg.src = images[lbIndex]; }
+  function nextLB() { lbIndex = (lbIndex + 1) % images.length; lbImg.src = images[lbIndex]; }
 
-  document.getElementById('gallery-grid').addEventListener('click', (e)=>{
-    if(e.target && e.target.tagName==='IMG') openLB(parseInt(e.target.dataset.index,10));
+  document.getElementById('gallery-grid').addEventListener('click', e => {
+    if (e.target && e.target.tagName === 'IMG') openLB(parseInt(e.target.dataset.index, 10));
   });
   lbClose.addEventListener('click', closeLB);
   lbPrev.addEventListener('click', prevLB);
   lbNext.addEventListener('click', nextLB);
-  lightbox.addEventListener('click', (e)=> { if(e.target===lightbox) closeLB(); });
-  document.addEventListener('keydown', (e)=> {
-    if(lightbox.style.display === 'flex'){
-      if(e.key === 'Escape') closeLB();
-      if(e.key === 'ArrowLeft') prevLB();
-      if(e.key === 'ArrowRight') nextLB();
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLB(); });
+  document.addEventListener('keydown', e => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'Escape') closeLB();
+      if (e.key === 'ArrowLeft') prevLB();
+      if (e.key === 'ArrowRight') nextLB();
     }
   });
 
   /* LANG SWITCH */
   let currentLang = localStorage.getItem('mn_lang') || 'mk';
-  function setActiveLangBtn(code){
-    langBtns.forEach(b=>{
-      b.classList.toggle('active', b.dataset.lang === code);
-      b.setAttribute('aria-pressed', b.dataset.lang === code ? 'true':'false');
-    });
+  function setActiveLangBtn(code) {
+    langBtns.forEach(b => { b.classList.toggle('active', b.dataset.lang === code); b.setAttribute('aria-pressed', b.dataset.lang === code ? 'true' : 'false'); });
   }
-  function applyLang(lang){
+  function applyLang(lang) {
     currentLang = lang;
     localStorage.setItem('mn_lang', lang);
     setActiveLangBtn(lang);
     const t = TEXT[lang];
-    // safe set helper
-    const setText = (id, text) => { const el = document.getElementById(id); if(el) el.textContent = text; };
+    const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
     setText('brand-name', t.brand);
     setText('brand-slogan', t.slogan);
     setText('hero-title', t.heroTitle);
@@ -181,22 +163,22 @@ document.addEventListener('DOMContentLoaded', () => {
     setText('lbl-msg', t.msgLabel);
     setText('send-btn', t.sendBtn);
     setText('footer-name', t.brand);
-    // nav
-    document.querySelectorAll('.main-nav a').forEach((a,i)=> a.textContent = t.nav[i] || a.textContent);
-    document.querySelectorAll('.mobile-nav a').forEach((a,i)=> a.textContent = t.nav[i] || a.textContent);
+    // navs
+    document.querySelectorAll('.main-nav a').forEach((a, i) => a.textContent = t.nav[i] || a.textContent);
+    document.querySelectorAll('.mobile-nav a').forEach((a, i) => a.textContent = t.nav[i] || a.textContent);
   }
-  langBtns.forEach(b=> b.addEventListener('click', ()=> applyLang(b.dataset.lang)));
+  langBtns.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
   applyLang(currentLang);
 
-  /* CONTACT FORM - mailto fallback */
-  contactForm.addEventListener('submit', function(e){
+  /* CONTACT FORM (mailto fallback) */
+  contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const name = this.name.value.trim();
     const email = this.email.value.trim();
     const message = this.message.value.trim();
-    if(!name || !email || !message){
+    if (!name || !email || !message) {
       statusEl.textContent = TEXT[currentLang].sending;
-      setTimeout(()=> statusEl.textContent = '', 2500);
+      setTimeout(() => statusEl.textContent = '', 2000);
       return;
     }
     const subject = encodeURIComponent(`${TEXT[currentLang].brand} - Contact`);
@@ -204,47 +186,42 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = `mailto:info@majstornaste.example?subject=${subject}&body=${body}`;
     statusEl.textContent = TEXT[currentLang].sentOK;
     this.reset();
-    setTimeout(()=> statusEl.textContent = '', 5000);
+    setTimeout(() => statusEl.textContent = '', 5000);
   });
 
   /* SHARE */
-  if(shareBtn){
-    if(navigator.share){
-      shareBtn.addEventListener('click', async ()=>{
-        try{
-          await navigator.share({ title: document.title, text: TEXT[currentLang].heroSub, url: window.location.href });
-        }catch(e){ /* cancelled */ }
+  if (shareBtn) {
+    if (navigator.share) {
+      shareBtn.addEventListener('click', async () => {
+        try { await navigator.share({ title: document.title, text: TEXT[currentLang].heroSub, url: window.location.href }); } catch (e) { /* ignore */ }
       });
-    }else{
-      shareBtn.addEventListener('click', ()=>{ navigator.clipboard.writeText(window.location.href); alert('🔗 Линкот е копиран!'); });
+    } else {
+      shareBtn.addEventListener('click', () => { navigator.clipboard.writeText(window.location.href); alert('🔗 Линкот е копиран!'); });
     }
   }
 
   /* THEME TOGGLE */
-  function setTheme(mode){
+  function setTheme(mode) {
     document.documentElement.setAttribute('data-theme', mode === 'light' ? 'light' : 'dark');
     localStorage.setItem('mn_theme', mode);
-    if(themeToggle) themeToggle.textContent = mode === 'light' ? '☀️' : '🌙';
+    if (themeToggle) themeToggle.textContent = mode === 'light' ? '☀️' : '🌙';
   }
-  themeToggle.addEventListener('click', ()=>{
-    const mode = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    setTheme(mode);
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    setTheme(current === 'light' ? 'dark' : 'light');
   });
+  setTheme(savedTheme);
 
   /* MOBILE MENU */
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const closeBtn = mobileMenu.querySelector('.close-btn');
-  hamburger.addEventListener('click', ()=> { mobileMenu.style.display='block'; mobileMenu.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; });
-  closeBtn.addEventListener('click', ()=> { mobileMenu.style.display='none'; mobileMenu.setAttribute('aria-hidden','true'); document.body.style.overflow=''; });
-  mobileMenu.addEventListener('click',(e)=> { if(e.target === mobileMenu){ mobileMenu.style.display='none'; document.body.style.overflow=''; } });
-  mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> { mobileMenu.style.display='none'; document.body.style.overflow=''; }));
+  hamburger.addEventListener('click', () => { mobileMenu.style.display = 'block'; mobileMenu.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; });
+  closeBtn.addEventListener('click', () => { mobileMenu.style.display = 'none'; mobileMenu.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; });
+  mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) { mobileMenu.style.display = 'none'; document.body.style.overflow = ''; } });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.style.display = 'none'; document.body.style.overflow = ''; }));
 
-  /* ensure images clickable in gallery after build (some browsers may load later) */
-  // already wired via event listener above
+}); // DOMContentLoaded
 
-}); // end DOMContentLoaded
-
-/* helpers */
-function IMAGE_SRC(i){ return `sliki/${i}.jpg`; }
-function setTheme(mode){ /* placeholder; real setter inside DOMContentLoaded to access themeToggle */ }
+/* helper for IMAGE_SRC in outside scope if needed */
+function IMAGE_SRC(i) { return `sliki/${i}.jpg`; }
