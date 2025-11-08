@@ -9,12 +9,11 @@ const firebaseConfig = {
   apiKey: "AIzaSyBQXww-trNI_5vgocyI_MH29uIysSJe7Jo",
   authDomain: "majstor-naste-255d5.firebaseapp.com",
   projectId: "majstor-naste-255d5",
-  storageBucket: "majstor-naste-255d5.firebasestorage.app",
+  storageBucket: "majstor-naste-255d5.appspot.com",
   messagingSenderId: "435344614331",
   appId: "1:435344614331:web:484c03303935ac824c9a9e",
   measurementId: "G-TJDBYMKTHP"
 };
-
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
