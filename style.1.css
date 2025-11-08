@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+/* 🔹 Sticky marquee */
+.marquee-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #222, #333);
+  color: #fff;
+  font-weight: bold;
+  padding: 0.4rem 0;
+  z-index: 2000;
+  border-bottom: 1px solid #444;
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* 🔹 Header */
+.nav {
+  background: #181818;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 2rem;
+  z-index: 1000;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo Flash */
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffd700;
+  animation: flash 2s infinite alternate;
+}
+@keyframes flash {
+  0% { opacity: 1; text-shadow: 0 0 10px #ffd700; }
+  100% { opacity: 0.5; text-shadow: 0 0 2px #555; }
+}
+
+/* Navigation */
+.nav-link {
+  color: #ddd;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: #ffd700;
+}
+
+/* Lang buttons */
+.lang-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0.7;
+}
+.lang-btn:hover, .lang-btn.active {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* Social icons */
+.social-link {
+  margin: 0 6px;
+  font-size: 20px;
+  color: #ccc;
+  transition: color 0.3s;
+}
+.social-link:hover {
+  color: #ffd700;
+}
+
+/* Hero (пример) */
+.hero {
+  height: 60vh;
+  background: url('sliki/1.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px 6px #000;
+}
