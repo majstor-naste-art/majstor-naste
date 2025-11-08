@@ -1,65 +1,73 @@
-import { auth, db, storage } from "./firebase-config.js";
-import { signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-import { collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
-import { ref, uploadBytes, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-storage.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
-const loginSection = document.getElementById('login-section');
-const gallerySection = document.getElementById('gallery-section');
-const loginBtn = document.getElementById('loginBtn');
-const logoutBtn = document.getElementById('logoutBtn');
-const loginStatus = document.getElementById('login-status');
-const fileInput = document.getElementById('fileInput');
-const imgTitle = document.getElementById('imgTitle');
-const uploadBtn = document.getElementById('uploadBtn');
-const galleryList = document.getElementById('galleryList');
+const firebaseConfig = {
+  apiKey: "AIzaSyBQXww-trNI_5vgocyI_MH29uIysSJe7Jo",
+  authDomain: "majstor-naste-255d5.firebaseapp.com",
+  projectId: "majstor-naste-255d5",
+  storageBucket: "majstor-naste-255d5.appspot.com",
+  messagingSenderId: "435344614331",
+  appId: "1:435344614331:web:484c03303935ac824c9a9e",
+  measurementId: "G-TJDBYMKTHP"
+};
 
-loginBtn.addEventListener('click', async () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    loginStatus.textContent = "Login successful!";
-    loginSection.style.display = 'none';
-    gallerySection.style.display = 'block';
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
+const storage = getStorage();
+
+const loginContainer = document.getElementById("login-container");
+const adminContainer = document.getElementById("admin-container");
+const loginBtn = document.getElementById("login-btn");
+const logoutBtn = document.getElementById("logout-btn");
+const fileInput = document.getElementById("file-input");
+const uploadBtn = document.getElementById("upload-btn");
+const uploadStatus = document.getElementById("upload-status");
+const galleryPreview = document.getElementById("gallery-preview");
+
+// Login
+loginBtn.addEventListener("click", () => {
+  signInWithPopup(auth, provider).catch(console.error);
+});
+
+// Logout
+logoutBtn.addEventListener("click", () => {
+  signOut(auth);
+});
+
+// Auth state
+onAuthStateChanged(auth, user => {
+  if(user){
+    loginContainer.style.display = "none";
+    adminContainer.style.display = "block";
     loadGallery();
-  } catch(e) {
-    loginStatus.textContent = e.message;
+  } else {
+    loginContainer.style.display = "block";
+    adminContainer.style.display = "none";
   }
 });
 
-logoutBtn.addEventListener('click', async () => {
-  await signOut(auth);
-  gallerySection.style.display = 'none';
-  loginSection.style.display = 'block';
-});
-
-uploadBtn.addEventListener('click', async () => {
+// Upload image
+uploadBtn.addEventListener("click", async () => {
   const file = fileInput.files[0];
-  const title = imgTitle.value;
-  if(!file || !title) return alert("Select file and enter title.");
-
+  if(!file) return alert("Избери слика!");
   const storageRef = ref(storage, `gallery/${file.name}`);
+  uploadStatus.textContent = "Uploading...";
   await uploadBytes(storageRef, file);
-  const url = await getDownloadURL(storageRef);
-
-  await addDoc(collection(db, 'gallery'), { title, imgUrl: url, created: Date.now() });
-  fileInput.value = '';
-  imgTitle.value = '';
+  uploadStatus.textContent = "Upload successful!";
   loadGallery();
 });
 
-async function loadGallery() {
-  galleryList.innerHTML = '';
-  const snapshot = await getDocs(collection(db, 'gallery'));
-  snapshot.forEach(docSnap => {
-    const data = docSnap.data();
-    const div = document.createElement('div');
-    div.innerHTML = `<img src="${data.imgUrl}" width="150"><span>${data.title}</span><button data-id="${docSnap.id}">Delete</button>`;
-    galleryList.appendChild(div);
-
-    div.querySelector('button').addEventListener('click', async () => {
-      await deleteDoc(doc(db, 'gallery', docSnap.id));
-      loadGallery();
-    });
-  });
+// Load gallery from Firebase
+async function loadGallery(){
+  galleryPreview.innerHTML = "";
+  const listRef = ref(storage, "gallery");
+  const res = await listAll(listRef);
+  for(let itemRef of res.items){
+    const url = await getDownloadURL(itemRef);
+    const img = document.createElement("img");
+    img.src = url;
+    galleryPreview.appendChild(img);
+  }
 }
