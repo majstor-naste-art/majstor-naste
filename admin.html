@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="mk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel - Majstor Naste</title>
-<link rel="stylesheet" href="admin.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Majstor Naste - Admin Panel</title>
+  <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-
-<div class="admin-container">
-  <h1>Admin Panel</h1>
-
-  <div id="login-section">
-    <h2>Login</h2>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button id="loginBtn">Login</button>
-    <p id="login-status"></p>
+  <div class="login-container" id="login-container">
+    <button id="login-btn">Login со Google</button>
   </div>
 
-  <div id="gallery-section" style="display:none;">
-    <h2>Gallery Management</h2>
-    <input type="file" id="fileInput">
-    <input type="text" id="imgTitle" placeholder="Title">
-    <button id="uploadBtn">Upload</button>
-    <div id="galleryList"></div>
-    <button id="logoutBtn">Logout</button>
-  </div>
-</div>
+  <div class="admin-container" id="admin-container" style="display:none;">
+    <h1>Admin Panel</h1>
+    <button id="logout-btn">Logout</button>
 
-<script type="module" src="admin.js"></script>
-<script type="module" src="firebase-config.js"></script>
+    <section class="upload-section">
+      <h2>Upload Слика</h2>
+      <input type="file" id="file-input" accept="image/*">
+      <button id="upload-btn">Upload</button>
+      <p id="upload-status"></p>
+    </section>
+
+    <section class="gallery-section">
+      <h2>Gallery Preview</h2>
+      <div id="gallery-preview" class="gallery-grid"></div>
+    </section>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script type="module" src="admin.js"></script>
 </body>
 </html>
