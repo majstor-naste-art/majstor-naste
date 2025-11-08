@@ -336,7 +336,7 @@ header.nav {
     display: block;
   }
 
- /* 🔹 Sticky marquee */
+/* 🔹 Sticky marquee */
 .marquee-sticky {
   position: sticky;
   top: 0;
@@ -345,16 +345,18 @@ header.nav {
   background: linear-gradient(90deg, #222, #333);
   color: #fff;
   font-weight: bold;
+  font-size: 1rem;
   padding: 0.4rem 0;
   z-index: 2000;
   border-bottom: 1px solid #444;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
 }
 
 .marquee-content {
   display: inline-block;
   white-space: nowrap;
   padding-left: 100%;
-  animation: marquee 15s linear infinite;
+  animation: marquee 18s linear infinite;
 }
 
 @keyframes marquee {
@@ -362,3 +364,8 @@ header.nav {
   100% { transform: translateX(-100%); }
 }
 
+/* 🔹 Responsive fix */
+@media (max-width: 768px) {
+  .main-nav { display: none; }
+  .hamburger { display: block; }
+}
