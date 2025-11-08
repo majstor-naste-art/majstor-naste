@@ -96,7 +96,7 @@ color: #111;
 .social-link {
   width: 28px;
   height: 28px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 2px solid red;
   background-size: 35px;
   filter: drop-shadow(0 0 3px rgba(255,255,255,0.6));
