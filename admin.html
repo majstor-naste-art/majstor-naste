@@ -1,41 +1,100 @@
-<h2>Admin Panel</h2>
-<form id="admin-form">
-  <label>URL на сликата: <input type="text" id="img-url" required></label>
-  <label>Alt текст: <input type="text" id="img-alt"></label>
-  <button type="submit">Додади слика</button>
-</form>
+<!doctype html>
+<html lang="mk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Мајстор Насте — Фасади & Камен</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
 
-<ul id="admin-list"></ul>
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="logo flash">MN</div>
+      <div class="brand-text">
+        <div id="brand-name">Мајстор Насте</div>
+        <div id="brand-slogan">Фасади, камен и мазилка</div>
+      </div>
+    </div>
 
-<script>
-const adminList = document.getElementById('admin-list');
-const form = document.getElementById('admin-form');
-let gallery = [];
+    <nav class="main-nav">
+      <a href="#hero">Почетна</a>
+      <a href="#services">Услуги</a>
+      <a href="#gallery">Галерија</a>
+      <a href="#contact">Контакт</a>
+    </nav>
 
-async function loadGallery() {
-  const res = await fetch('gallery.json');
-  gallery = await res.json().then(d => d.images);
-  renderGallery();
-}
+    <button class="hamburger" aria-label="Мену">☰</button>
 
-function renderGallery() {
-  adminList.innerHTML = '';
-  gallery.forEach((img, i) => {
-    const li = document.createElement('li');
-    li.textContent = img.src + ' | ' + img.alt;
-    adminList.appendChild(li);
-  });
-}
+    <div class="tools">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="mk">🇲🇰</button>
+        <button class="lang-btn" data-lang="bg">🇧🇬</button>
+        <button class="lang-btn" data-lang="en">🇬🇧</button>
+      </div>
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const url = document.getElementById('img-url').value;
-  const alt = document.getElementById('img-alt').value;
-  gallery.push({src: url, alt});
-  renderGallery();
-  form.reset();
-  alert('Додадена е нова слика! За да се зачува, мораш да ја ажурираш gallery.json на сервер.');
-});
+      <div class="social">
+        <a href="https://facebook.com/majstornaste" class="social-link fb" title="Facebook" target="_blank"></a>
+        <a href="https://instagram.com/majstornaste" class="social-link ig" title="Instagram" target="_blank"></a>
+        <a href="https://t.me/majstornaste" class="social-link tg" title="Telegram" target="_blank"></a>
+      </div>
 
-loadGallery();
-</script>
+      <button id="themeToggle" class="btn-toggle" title="Промени тема">🌓</button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" aria-label="Затвори">✕</button>
+    <nav class="mobile-nav">
+      <a href="#hero">Почетна</a>
+      <a href="#services">Услуги</a>
+      <a href="#gallery">Галерија</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+  </div>
+</header>
+
+<section id="hero" class="hero">
+  <div class="slider">
+    <div class="slide active" style="background-image:url('sliki/1.jpg')"></div>
+    <div class="slide" style="background-image:url('sliki/2.jpg')"></div>
+    <div class="slide" style="background-image:url('sliki/3.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content container">
+    <h1 id="hero-title">Фасади & Камен — професионално изведување</h1>
+    <p id="hero-sub">Специјализација: фасади, облицовки, камини и мазилки.</p>
+    <a id="cta-quote" class="btn primary" href="#contact">Барај проценка</a>
+  </div>
+  <button class="slider-btn prev">‹</button>
+  <button class="slider-btn next">›</button>
+</section>
+
+<main class="container">
+  <section id="gallery" class="gallery-section">
+    <h2 id="gallery-title">Галерија</h2>
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2 id="contact-title">Контакт</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><strong>Телефон:</strong> <a href="tel:+38970123456">+389 70 123 456</a></p>
+        <p><strong>Е-пошта:</strong> <a href="mailto:info@majstornaste.example">info@majstornaste.example</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Мајстор Насте</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
