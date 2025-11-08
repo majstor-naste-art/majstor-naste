@@ -53,7 +53,7 @@ header.nav {
 /* Main nav */
 .main-nav { display:flex; gap:18px; align-items:center; }
 .nav-link { color: #e9eef1; text-decoration:none; font-weight:500; padding:6px 8px; border-radius:6px; transition: color .18s, background .18s; }
-.nav-link:hover { color:#111; background:#ffd000; }
+.nav-link:hover { color:#111; background:#240dd4; }
 
 /* Tools */
 .tools { display:flex; align-items:center; gap:10px; }
