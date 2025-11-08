@@ -14,7 +14,7 @@ body {
 /* HEADER */
 header.nav {
   background: linear-gradient(90deg, #111 0%, #222 100%);
-  color: #fff;
+  color: #ff6600;
   position: sticky;
   top: 0;
   z-index: 1000;
