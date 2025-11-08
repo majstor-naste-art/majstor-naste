@@ -1,34 +1,41 @@
-<!DOCTYPE html>
-<html lang="mk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Majstor Naste - Admin Panel</title>
-  <link rel="stylesheet" href="admin.css">
-</head>
-<body>
-  <div class="login-container" id="login-container">
-    <button id="login-btn">Login со Google</button>
-  </div>
+<h2>Admin Panel</h2>
+<form id="admin-form">
+  <label>URL на сликата: <input type="text" id="img-url" required></label>
+  <label>Alt текст: <input type="text" id="img-alt"></label>
+  <button type="submit">Додади слика</button>
+</form>
 
-  <div class="admin-container" id="admin-container" style="display:none;">
-    <h1>Admin Panel</h1>
-    <button id="logout-btn">Logout</button>
+<ul id="admin-list"></ul>
 
-    <section class="upload-section">
-      <h2>Upload Слика</h2>
-      <input type="file" id="file-input" accept="image/*">
-      <button id="upload-btn">Upload</button>
-      <p id="upload-status"></p>
-    </section>
+<script>
+const adminList = document.getElementById('admin-list');
+const form = document.getElementById('admin-form');
+let gallery = [];
 
-    <section class="gallery-section">
-      <h2>Gallery Preview</h2>
-      <div id="gallery-preview" class="gallery-grid"></div>
-    </section>
-  </div>
+async function loadGallery() {
+  const res = await fetch('gallery.json');
+  gallery = await res.json().then(d => d.images);
+  renderGallery();
+}
 
-  <!-- Firebase SDKs -->
-  <script type="module" src="admin.js"></script>
-</body>
-</html>
+function renderGallery() {
+  adminList.innerHTML = '';
+  gallery.forEach((img, i) => {
+    const li = document.createElement('li');
+    li.textContent = img.src + ' | ' + img.alt;
+    adminList.appendChild(li);
+  });
+}
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const url = document.getElementById('img-url').value;
+  const alt = document.getElementById('img-alt').value;
+  gallery.push({src: url, alt});
+  renderGallery();
+  form.reset();
+  alert('Додадена е нова слика! За да се зачува, мораш да ја ажурираш gallery.json на сервер.');
+});
+
+loadGallery();
+</script>
