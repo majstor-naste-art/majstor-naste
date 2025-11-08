@@ -41,7 +41,7 @@ header.nav {
   color:#111;
   font-weight:800;
   padding:8px 12px;
-  border-radius:15px;
+  border-radius:20px;
   font-size:1.15rem;
   box-shadow: 0 4px 12px rgba(255,168,0,0.12);
   animation: flash 1.6s infinite alternate;
