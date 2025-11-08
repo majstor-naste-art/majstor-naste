@@ -4,13 +4,15 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.3.0/firebase
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-storage.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBQXww-trNI_5vgocyI_MH29uIysSJe7Jo",
   authDomain: "majstor-naste-255d5.firebaseapp.com",
   projectId: "majstor-naste-255d5",
   storageBucket: "majstor-naste-255d5.firebasestorage.app",
   messagingSenderId: "435344614331",
-  appId: "G-TJDBYMKTHP"
+  appId: "1:435344614331:web:484c03303935ac824c9a9e",
+  measurementId: "G-TJDBYMKTHP"
 };
 
 const app = initializeApp(firebaseConfig);
