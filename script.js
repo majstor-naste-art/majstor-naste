@@ -225,3 +225,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* helper for IMAGE_SRC in outside scope if needed */
 function IMAGE_SRC(i) { return `sliki/${i}.jpg`; }
+
+
+
+const yearEl = document.getElementById("year");
+yearEl.textContent = new Date().getFullYear();
+
+/* GALLERY with lazy load */
+const galleryGrid = document.getElementById("gallery-grid");
+const TOTAL_IMAGES = 30;
+for (let i = 1; i <= TOTAL_IMAGES; i++) {
+  const img = document.createElement("img");
+  img.src = `sliki/${i}.jpg`;
+  img.loading = "lazy";
+  img.alt = `Project ${i}`;
+  img.onerror = () => img.src = "https://placehold.co/600x400?text=Majstor+Naste";
+  galleryGrid.appendChild(img);
+}
+
+/* SLIDER */
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+function showSlide(i) {
+  slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+}
+document.querySelector(".next").onclick = () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+};
+document.querySelector(".prev").onclick = () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+};
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}, 5000);
+
+/* THEME TOGGLE */
+const toggle = document.getElementById("themeToggle");
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+});
+
