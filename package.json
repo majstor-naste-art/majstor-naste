@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "Мајстор Насте — Фасади, камен и мазилка",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "npx serve .",
     "start": "npx serve ."
-  },
-  "engines": {
-    "node": "20.x"
   }
 }
