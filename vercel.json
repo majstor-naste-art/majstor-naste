@@ -1,5 +1,12 @@
 {
   "version": 2,
+  "redirects": [
+    {
+      "source": "/majstor-naste/:path*",
+      "destination": "/:path*",
+      "permanent": false
+    }
+  ],
   "routes": [
     { "handle": "filesystem" }
   ]
