@@ -89,12 +89,64 @@ header.nav{ position:fixed; left:0; right:0; top:40px; background:linear-gradien
 .contact-form label{ display:block; margin-bottom:12px; font-size:0.95rem; }
 .contact-form input, .contact-form textarea{ width:100%; padding:10px; border-radius:8px; border:none; background:#161718; color:#fff; margin-top:6px; }
 
-/* LIGHTBOX */
-.lightbox{ display:none; position:fixed; inset:0; z-index:4000; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; }
-.lightbox.active{ display:flex; }
-.lightbox img{ max-width:92%; max-height:86%; border-radius:8px; box-shadow:0 14px 40px rgba(0,0,0,0.7); }
-.lb-close, .lb-prev, .lb-next{ position:absolute; background:none; border:none; color:#fff; font-size:28px; cursor:pointer; }
-.lb-close{ top:18px; right:28px; } .lb-prev{ left:32px; } .lb-next{ right:32px; }
+/* === LIGHTBOX — osnova (PC / Tablet) === */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  background: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 92%;
+  max-height: 86%;
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: pinch-zoom;   /* dozvoljava pinch-zoom slike */
+}
+
+/* Dugmad */
+.lb-close,
+.lb-prev,
+.lb-next {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.55);
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, transform 0.18s;
+  z-index: 2;
+}
+
+.lb-close:hover,
+.lb-prev:hover,
+.lb-next:hover {
+  background: var(--accent);
+  color: #111;
+  transform: scale(1.08);
+}
+
+.lb-close { top: 18px;  right: 24px; }
+.lb-prev  { left: 24px; top: 50%; transform: translateY(-50%); }
+.lb-next  { right: 24px; top: 50%; transform: translateY(-50%); }
 
 /* FOOTER */
 .footer{ padding:20px 0; background:linear-gradient(180deg,#070708,#060606); color:#aeb6bb; text-align:center; margin-top:40px; }
