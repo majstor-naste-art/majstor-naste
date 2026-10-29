@@ -206,3 +206,66 @@ header.nav{ position:fixed; left:0; right:0; top:40px; background:linear-gradien
   .gallery-grid { grid-template-columns: 1fr; gap: 8px; }
   .gallery-grid img { height: 200px; }
 }
+
+/* === DODACI ZA BOLJI MOBILE / TABLET UX === */
+
+/* 1. Uklanja plavi "flash" pri tapu na mobilnom */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* 2. Sprječava "sticky hover" na touch uredjajima
+      (hover efekat ostaje zaglavljen posle tapa) */
+@media (hover: none) {
+  .card:hover,
+  .gallery-grid img:hover,
+  .nav-link:hover,
+  .social-link:hover,
+  .lang-btn:hover {
+    transform: none;
+    box-shadow: inherit;
+    background: inherit;
+  }
+}
+
+/* 3. Landscape telefoni (npr. telefon okrenut horizontalno)
+      — hero je previsok za kratak ekran */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { height: 100vh; min-height: 320px; }
+  .hero-content h1 { font-size: 1.3rem; }
+  .hero-content p { font-size: 0.85rem; }
+  .hero-ctas { flex-direction: row; }
+  .hero-ctas .btn { width: auto; }
+  body { padding-top: 56px; }
+  .marquee-sticky { display: none; }  /* štedi vertikalni prostor */
+}
+
+/* 4. iPhone notch / safe-area (za nove iPhone modele) */
+header.nav {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 5. Tablet landscape specifično — 2 kolone galerije umesto 4 */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 6. Bolji touch target — min 44x44px (Apple/Google standard) */
+@media (max-width: 820px) {
+  .lang-btn  { min-width: 44px; min-height: 44px; }
+  .social-link { min-width: 44px; min-height: 44px; }
+  .btn-share { min-height: 44px; }
+  .hamburger { min-width: 44px; min-height: 44px; }
+  .mobile-nav a { padding: 14px 0; }  /* lakše za tap */
+}
+
+/* 7. Smooth scroll samo kada nije "prefers-reduced-motion" */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-content { animation: none; }
+  .logo.flash { animation: none; }
+  * { transition-duration: 0.01ms !important; }
+}
